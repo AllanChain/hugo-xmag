@@ -29,7 +29,7 @@
           </li>
         {{- end}}
         <li>
-          <a href="#{{- $cleanedID  -}}">{{- $header | plainify | htmlEscape | safeHTML -}}</a>
+          <a href="#{{- $cleanedID  -}}">{{- $header | plainify | safeHTML -}}</a>
         {{- if eq $i (sub (len $headers) 1) -}}
           {{- range seq (sub $prevHeaderLevel $headerLevel) -}}
             </li></ul></li>
@@ -37,7 +37,7 @@
         {{- end}}
     {{- else}}
     <li>
-      <a href="#{{- $cleanedID -}}">{{- $header | plainify | htmlEscape | safeHTML -}}</a>
+      <a href="#{{- $cleanedID -}}">{{- $header | plainify | safeHTML -}}</a>
     {{- end -}}
   {{- end -}}
   {{- $firstHeaderLevel := len (seq (index (findRE "[1-4]" (index $headers 0) 1) 0)) -}}
