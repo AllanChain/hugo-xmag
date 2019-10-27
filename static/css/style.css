@@ -48,6 +48,11 @@ main a {
   display: flex;
   justify-content: space-between;
 }
+.head-meta span.date {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
 .header, .list section, article { background: #073642; }
 .banner { font-size: 4em; }
 .banner .text {
