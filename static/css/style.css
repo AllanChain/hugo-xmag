@@ -119,6 +119,7 @@ article { padding: 1em; }
 }
 .pagination {
   padding-inline-start: 0px;
+  line-height: 35px;
 }
 .page-item a {
   text-decoration: none;
