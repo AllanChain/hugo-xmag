@@ -115,11 +115,14 @@ article { padding: 1em; }
 .pagination li { display: inline; }
 .pagination a {
   padding: 0 .2em;
-  font-weight: bold;
+  font-weight: 550;
 }
 .pagination {
   padding-inline-start: 0px;
   line-height: 35px;
+}
+.page-ellipsis {
+  color: #268bd2;
 }
 .page-item a {
   text-decoration: none;
@@ -127,7 +130,7 @@ article { padding: 1em; }
 }
 .page-item {
   background-color: #073642;
-  padding: 5px;
+  padding: 3px;
   margin: 2px;
   border-radius: 5px;
 }
