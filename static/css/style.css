@@ -219,12 +219,19 @@ tr:nth-child(even) { background: #eee }
   float: left;
   overflow: hidden;
   margin: 5px 8px 5px 0;
-  box-shadow: 0 0 8px #666;
+  box-shadow: 0 0 8px #6c71c4;
+  text-align: center;
+}
+
+.helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
 }
 .thumbnail img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  max-height: 100%;
+  max-width: 100%;
+  vertical-align: middle;
 }
 #TableOfContents, #TOC, .comments {
   border: 1px solid #eee;
