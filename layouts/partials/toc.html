@@ -3,7 +3,6 @@
 {{- if $has_headers -}}
 <ul >
   {{- range $i, $header := $headers -}}
-    {{- $header := replaceRE "<h[1-4].*?>((.|\n])+?)</h[1-4]>" "$1" $header -}}
     {{- $headerLevel := index (findRE "[1-4]" . 1) 0 -}}
     {{- $headerLevel := len (seq $headerLevel) -}}
 
@@ -12,6 +11,7 @@
 
     {{/* strip id="" to leave xyz (no way to get regex capturing groups in hugo :( */}}
     {{ $cleanedID := replace (replace $id "id=\"" "") "\"" "" }}
+    {{- $header := replaceRE "<h[1-4].*?>((.|\n])+?)</h[1-4]>" "$1" $header -}}
 
     {{- if ne $i 0 -}}
       {{- $prevHeaderLevel := index (findRE "[1-4]" (index $headers (sub $i 1)) 1) 0 -}}
