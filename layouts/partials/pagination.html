@@ -35,7 +35,7 @@
     </li>
     {{ end }}
 
-    {{ if gt $paginator.PageNumber $lower_limit}}
+    {{ if and (gt $paginator.PageNumber $lower_limit) (lt $paginator.PageNumber $upper_limit) }}
         <li class="page-ellipsis">...</li>
     {{ end }}
     <!-- Page numbers. -->
@@ -96,7 +96,7 @@
 
     {{ end }}
 
-    {{ if lt $paginator.PageNumber $upper_limit}}
+    {{ if and (gt $paginator.PageNumber $lower_limit) (lt $paginator.PageNumber $upper_limit) }}
         <li class="page-ellipsis">...</li>
     {{ end }}
     <!-- Next page. -->
