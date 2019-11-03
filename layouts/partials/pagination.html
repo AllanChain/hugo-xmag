@@ -35,7 +35,7 @@
     </li>
     {{ end }}
 
-    {{ if and (gt $paginator.PageNumber $lower_limit) (lt $paginator.PageNumber $upper_limit) }}
+    {{ if and (gt $paginator.PageNumber $lower_limit) (gt $paginator.TotalPages $max_links) }}
         <li class="page-ellipsis">...</li>
     {{ end }}
     <!-- Page numbers. -->
@@ -43,10 +43,8 @@
 
       {{ $.Scratch.Set "page_number_flag" false }}
 
-
       <!-- Advanced page numbers. -->
       {{ if gt $paginator.TotalPages $max_links }}
-
 
         <!-- Lower limit pages. -->
         <!-- If the user is on a page which is in the lower limit.  -->
@@ -96,7 +94,7 @@
 
     {{ end }}
 
-    {{ if and (gt $paginator.PageNumber $lower_limit) (lt $paginator.PageNumber $upper_limit) }}
+    {{ if and (lt $paginator.PageNumber $upper_limit) (gt $paginator.TotalPages $max_links) }}
         <li class="page-ellipsis">...</li>
     {{ end }}
     <!-- Next page. -->
