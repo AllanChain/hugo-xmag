@@ -30,12 +30,15 @@
         {{ end }}
         {{ end }}
       {{ else }}
-        <span>{{ $.Scratch.Get "Title" }}</span>
+        {{ if .IsHome }}
+        &nbsp;
+        {{ else }}
+          <span>{{ $.Scratch.Get "Title" }}</span>
+          {{ $pages := .Pages }}
+          {{ $paginator := .Paginate (where $pages "Section" "!=" "") }}
+          <span>{{ with $paginator }}{{ if .TotalPages }}{{ .PageNumber }} / {{ .TotalPages }}{{ end }}{{ end }}</span>
+        {{ end }}
         <span class="date">{{ now.Format "2006-01-02" }}</span>
-        {{ $pages := .Pages }}
-        {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
-        {{ $paginator := .Paginate (where $pages "Section" "!=" "") }}
-        <span>{{ with $paginator }}{{ if .TotalPages }}{{ .PageNumber }} / {{ .TotalPages }}{{ end }}{{ end }}</span>
       {{ end }}
       </div>
     </nav>
