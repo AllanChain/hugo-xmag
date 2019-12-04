@@ -209,9 +209,9 @@ table {
   border-top: 1px solid #666;
   border-bottom: 1px solid #666;
 }
-table thead th { border-bottom: 1px solid #ddd; }
+table thead th { border-bottom: 1px solid #186798; }
 th, td { padding: 5px; }
-tr:nth-child(even) { background: #eee }
+tr:nth-child(even) { background: #186798 }
 
 .thumbnail {
   height: 5.1em;
