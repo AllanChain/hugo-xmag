@@ -22,11 +22,11 @@
   </div>
   <div class="summary">
     {{ with .Params.thumbnail }}
-    <div class="thumbnail"><span class="helper"></span><img src="{{ relURL . }}" alt="Thumbnail" /></div>
+    <img class="thumbnail" src="{{ relURL . }}" alt="Thumbnail" />
     {{ else }}
     {{ $img := findRE "<img src=\"[^\"]+\"" .Content 1 }}
     {{ range $img }}
-    <div class="thumbnail"><span class="helper"></span>{{ (print . " alt=\"Thumbnail\" />") | safeHTML }}</div>
+    {{ (print . "class=\"thumbnail\" alt=\"Thumbnail\" />") | safeHTML }}
     {{ end }}
     {{ end }}
     {{ with .Description }}

@@ -33,10 +33,7 @@
           {{ if .summary }}
           <div class="summary">
             {{ if .thumbnail }}
-            <div class="thumbnail">
-              <span class="helper"></span>
-              <img src="{{ .thumbnail }}" alt="thumbnail">
-            </div>
+              <img class="thumbnail" src="{{ .thumbnail }}" alt="thumbnail">
             {{ end }}
             {{ .summary }}
           </div>

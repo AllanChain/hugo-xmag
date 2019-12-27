@@ -292,24 +292,13 @@ tr:nth-child(even) {
 }
 
 .thumbnail {
-  height: 5.1em;
-  width: 6.8em;
+  max-height: 5.1em;
+  max-width: 6.8em;
   float: left;
   overflow: hidden;
   margin: 5px 8px 5px 0;
-  box-shadow: 0 0 8px #6c71c4;
+  /* box-shadow: 0 0 8px #6c71c4; */
   text-align: center;
-}
-
-.helper {
-  display: inline-block;
-  height: 100%;
-  vertical-align: middle;
-}
-.thumbnail img {
-  max-height: 100%;
-  max-width: 100%;
-  vertical-align: middle;
 }
 #TableOfContents,
 #TOC,
