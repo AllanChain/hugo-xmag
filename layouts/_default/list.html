@@ -26,7 +26,7 @@
     {{ else }}
     {{ $img := findRE "<img src=\"[^\"]+\"" .Content 1 }}
     {{ range $img }}
-    <div class="thumbnail">{{ (print . " alt=\"Thumbnail\" />") | safeHTML }}</div>
+    <div class="thumbnail"><span class="helper"></span>{{ (print . " alt=\"Thumbnail\" />") | safeHTML }}</div>
     {{ end }}
     {{ end }}
     {{ with .Description }}

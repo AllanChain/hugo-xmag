@@ -1,12 +1,51 @@
 {{ partial "header.html" . }}
+<style>
+  /* .list section {
+    flex: 1 0 200px;
+  } */
+  .article-list h1 {
+    line-height: normal;
+    color: #268bd2;
+  }
+  .leading-h1 {
+    font-size: 2em;
+    text-align: center !IMPORTANT;
+    margin-bottom: 5px;
+  }
+</style>
 <div class="container">
-<article>
-<div class="article-meta">
-  <h1><span class="title">{{ .Title }}</span></h1>
-</div>
-<main>
-{{ .Content }}
-</main>
-</article>
+  <article>
+    <div class="article-meta">
+      <h1><span class="title">{{ .Title }}</span></h1>
+    </div>
+    <main>
+      {{ range .Site.Params.indexSections }}
+      <h1 class="leading-h1">
+        {{ (replaceRE "(&[A-Z]) (fr;)" "$1$2" (replaceRE "([A-Z])" "&$1 fr;" (upper .name))) | safeHTML}}
+      </h1>
+      <div class="list">
+      {{ range .links }}
+        <section
+          class="article-list"
+          onclick="window.location.href='{{ .url }}'"
+        >
+          <h1>{{ .text }}</h1>
+          {{ if .summary }}
+          <div class="summary">
+            {{ if .thumbnail }}
+            <div class="thumbnail">
+              <span class="helper"></span>
+              <img src="{{ .thumbnail }}" alt="thumbnail">
+            </div>
+            {{ end }}
+            {{ .summary }}
+          </div>
+          {{ end }}
+        </section>
+      {{ end }}
+      </div>
+      {{ end }}
+    </main>
+  </article>
 </div>
 {{ partial "footer.html" . }}
