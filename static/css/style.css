@@ -112,11 +112,11 @@ article {
     max-width: calc(33.33333% - 15px);
   }
 }
-.link-list {
-  flex: 1 0 110px !IMPORTANT;
+.link-list.thin{
+  flex: 1 0 110px;
 }
-.link-list h1 {
-  line-height: normal !IMPORTANT;
+.article-list.link-list h1 {
+  line-height: normal;
   color: #268bd2;
 }
 .banner a {

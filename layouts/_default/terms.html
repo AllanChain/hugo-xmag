@@ -10,7 +10,7 @@
         <div class="list">
           {{ range $key, $value := .Data.Terms }}
           <section
-            class="article-list link-list"
+            class="article-list link-list thin"
             onclick="window.location.href='{{ $key }}'"
             >
             <h1>{{ $key }}</h1>
@@ -23,6 +23,10 @@
       </main>
     </article>
   </div>
-  </div>
-
+</main>
+<style>
+  .page-meta {
+    display: none;
+  }
+</style>
 {{ partial "footer.html" . }}

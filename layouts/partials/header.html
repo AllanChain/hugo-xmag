@@ -36,7 +36,7 @@
           <span>{{ $.Scratch.Get "Title" }}</span>
           {{ $pages := .Pages }}
           {{ $paginator := .Paginate (where $pages "Section" "!=" "") }}
-          <span>{{ with $paginator }}{{ if .TotalPages }}{{ .PageNumber }} / {{ .TotalPages }}{{ end }}{{ end }}</span>
+          <span class="page-meta">{{ with $paginator }}{{ if .TotalPages }}{{ .PageNumber }} / {{ .TotalPages }}{{ end }}{{ end }}</span>
         {{ end }}
         <span class="date">{{ now.Format "2006-01-02" }}</span>
       {{ end }}
