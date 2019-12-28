@@ -1,12 +1,12 @@
-name = "XMag"
+name = "XMag-Solarized"
 license = "MIT"
-licenselink = "https://github.com/yihui/hugo-xmag/blob/master/LICENSE.md"
-description = "A minimal magazine theme for Hugo"
-homepage = "https://xmag.yihui.name"
-tags = ["minimal", "magazine", "clean", "simple", "minimalist", "blog", "responsive", "Google Analytics", "Syntax Highlighting"]
-features = ["blog", "magazine"]
+licenselink = "https://github.com/AllanChain/hugo-xmag-solarized/blob/master/LICENSE.md"
+description = "A solarized minimal magazine theme for Hugo, forked from hugo-xmag"
+homepage = "https://github.com/AllanChain/hugo-xmag-solarized"
+tags = ["minimal", "magazine", "clean", "simple", "minimalist", "blog", "responsive", "Google Analytics", "Syntax Highlighting", "Solarized"]
+features = ["blog", "magazine", "solarized"]
 min_version = "0.18"
 
 [author]
-  name = "Yihui Xie"
-  homepage = "https://yihui.name"
+  name = "AllanChain"
+  homepage = "https://allanchain.github.io/blog/"
