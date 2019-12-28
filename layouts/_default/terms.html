@@ -1,41 +1,28 @@
 {{ partial "header.html" . }}
 
-<style>
-  .list section {
-   flex: 0.5 0 200px;
-  }
-  .article-list h1 {
-    line-height: normal;
-    color: #268bd2;
-  }
-</style>
-<div class="container">
-  <article>
-    <main>
-      <div class="container">
-        <article>
-          <div class="article-meta">
-            <h1><span class="title">{{ $.Scratch.Get "Title" }}</span></h1>
-          </div>
-          <main>
-            <div class="list">
-              {{ range $key, $value := .Data.Terms }}
-              <section
-                class="article-list"
-                onclick="window.location.href='{{ $key }}'"
-                >
-                <h1>{{ $key }}</h1>
-                <div class="summary">
-                  {{ len $value }} Article(s)
-                </div>
-              </section>
-            {{ end }}
-            </div>
-          </main>
-        </article>
+<main>
+  <div class="container">
+    <article>
+      <div class="article-meta">
+        <h1><span class="title">{{ $.Scratch.Get "Title" }}</span></h1>
       </div>
-    </main>
-  </article>
-</div>
+      <main>
+        <div class="list">
+          {{ range $key, $value := .Data.Terms }}
+          <section
+            class="article-list link-list"
+            onclick="window.location.href='{{ $key }}'"
+            >
+            <h1>{{ $key }}</h1>
+            <div class="summary">
+              {{ len $value }} Article(s)
+            </div>
+          </section>
+          {{ end }}
+        </div>
+      </main>
+    </article>
+  </div>
+  </div>
 
 {{ partial "footer.html" . }}

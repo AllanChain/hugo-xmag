@@ -112,7 +112,13 @@ article {
     max-width: calc(33.33333% - 15px);
   }
 }
-.article-list a,
+.link-list {
+  flex: 1 0 110px !IMPORTANT;
+}
+.link-list h1 {
+  line-height: normal !IMPORTANT;
+  color: #268bd2;
+}
 .banner a {
   color: #eee8d5;
 }
@@ -120,10 +126,14 @@ article {
   font-size: 0.9em;
   font-weight: bolder;
   text-transform: uppercase;
-  color: #268bd2;
 }
 .date-author {
   color: #657b83;
+}
+.leading-h1 {
+  font-size: 2em;
+  text-align: center !IMPORTANT;
+  margin-bottom: 5px;
 }
 .article-list h1 {
   margin: 0.2em auto 0.2em 0;
@@ -167,14 +177,6 @@ footer,
 .article-list h1,
 .title {
   line-height: 1.2em;
-}
-.article-list a,
-.header a,
-footer a,
-.categories a,
-.active a,
-.comments a {
-  text-decoration: none;
 }
 .pagination {
   text-align: center;
