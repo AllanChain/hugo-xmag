@@ -16,6 +16,11 @@
             <h1>{{ .Name }}</h1>
             <div class="summary">
               {{ .Count }} Article(s)
+
+              {{ $thumbnail := $.Site.Params.termThumbnails.Get .Name }}
+              {{ if $thumbnail }}
+                <img src="{{ $thumbnail }}" alt="thumbnail">
+              {{ end }}
             </div>
           </section>
           {{ end }}
