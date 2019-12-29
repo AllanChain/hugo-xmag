@@ -22,6 +22,7 @@ What I did:
 
 There is no screen shot for I am lazy to show all the fixes by adding screenshots. Just visit my blog page <https://allanchain.github.io/blog/>
 
+![screenshot](/images/allanchain.github.io.png)
 ---
 
 **XMag** is designed based on the Hugo theme [**XMin**](https://github.com/yihui/hugo-xmin), and similarly, features minimalism but with a magazine style on the homepage inspired by [The Signpost](https://en.wikipedia.org/wiki/Wikipedia:Wikipedia_Signpost) on Wikipedia.
