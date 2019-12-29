@@ -12,9 +12,9 @@ What I did:
 - Use custom toc to fix hugo's toc bug, namely that toc can only start from h1 tag
 - Fix the image displaying to make sure whole image is seen
 - Center the date span which is not in the center just by applying `justify-content: space-between`
-- Move the javascript file hosted at the author's domain to the repo
 - Add some hovering transition
-- Use the same fancy blocks in tags and categories page, and order by Count
+- Use the same fancy blocks in tags and categories page, and ordered by Count
+- You can attach image to tags, categories, and blocks in index pages
 - Use a different index page which is configurable via `_index.md`
 - Make use of hugo v0.62.0 feature to handle render-image, which means there is no need for `center-img.js`
 - Use official MathJax instead of the R one and use typical `$` as math formular indicator
@@ -22,7 +22,7 @@ What I did:
 
 There is no screen shot for I am lazy to show all the fixes by adding screenshots. Just visit my blog page <https://allanchain.github.io/blog/>
 
-![screenshot](/images/screenshot/png)
+![screenshot](/images/screenshot.png)
 
 ---
 
