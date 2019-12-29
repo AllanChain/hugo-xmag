@@ -2,6 +2,8 @@
 
 The original Hugo XMag theme description is below the separating line.
 
+This fork will never be merge to the original one because I did so much modifications and most importantly, changed the colorscheme.
+
 What I did:
 
 - Re-toning XMag to solarized dark theme
@@ -12,6 +14,11 @@ What I did:
 - Center the date span which is not in the center just by applying `justify-content: space-between`
 - Move the javascript file hosted at the author's domain to the repo
 - Add some hovering transition
+- Use the same fancy blocks in tags and categories page, and order by Count
+- Use a different index page which is configurable via `_index.md`
+- Make use of hugo v0.62.0 feature to handle render-image, which means there is no need for `center-img.js`
+- Use official MathJax instead of the R one and use typical `$` as math formular indicator
+- Use Gitalk as a comment option
 
 There is no screen shot for I am lazy to show all the fixes by adding screenshots. Just visit my blog page <https://allanchain.github.io/blog/>
 
