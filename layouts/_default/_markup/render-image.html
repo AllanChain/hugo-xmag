@@ -1,0 +1,10 @@
+<div class="img-container">
+  <img src="{{ .Destination | safeURL }}" {{ with .Title }} alt="{{ .Title }}"{{ end }} />
+  {{ if strings.HasPrefix .Destination "http" }}
+  <span class="img-tooltip">
+    <a href="{{ .Destination }}" target="_blank">
+      {{ .Destination }}
+    </a>
+  </span>
+  {{ end }}
+</div>

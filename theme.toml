@@ -5,7 +5,7 @@ description = "A solarized minimal magazine theme for Hugo, forked from hugo-xma
 homepage = "https://github.com/AllanChain/hugo-xmag-solarized"
 tags = ["minimal", "magazine", "clean", "simple", "minimalist", "blog", "responsive", "Google Analytics", "Syntax Highlighting", "Solarized"]
 features = ["blog", "magazine", "solarized"]
-min_version = "0.18"
+min_version = "0.62.0"
 
 [author]
   name = "AllanChain"
