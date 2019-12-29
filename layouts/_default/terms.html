@@ -8,14 +8,14 @@
       </div>
       <main>
         <div class="list">
-          {{ range $key, $value := .Data.Terms }}
+          {{ range .Data.Terms.ByCount }}
           <section
             class="article-list link-list thin"
-            onclick="window.location.href='{{ $key }}'"
+            onclick="window.location.href='{{ .Name }}'"
             >
-            <h1>{{ $key }}</h1>
+            <h1>{{ .Name }}</h1>
             <div class="summary">
-              {{ len $value }} Article(s)
+              {{ .Count }} Article(s)
             </div>
           </section>
           {{ end }}
