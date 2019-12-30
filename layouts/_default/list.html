@@ -9,10 +9,12 @@
   <div class="categories">
   {{ with .Params.categories }}
   {{ range first 1 . }}
+    {{ $.Scratch.Set "categoryName" . }}
     <a href="{{ relURL (print "/categories/" . | urlize) }}">{{ . }}</a>
   {{ end }}
   {{ else }}
-    <a>{{ default "Uncategorized" .Site.Params.text.uncategorized }}</a>
+  {{ default "Uncategorized" .Site.Params.text.uncategorized | $.Scratch.Set "categoryName" }}
+    <a>{{ $.Scratch.Get "categoryName" }}</a>
   {{ end }}
   </div>
   <h1>{{ .Title }}</h1>
@@ -24,9 +26,13 @@
     {{ with .Params.thumbnail }}
     <img class="thumbnail" src="{{ relURL . }}" alt="Thumbnail" />
     {{ else }}
+    {{ with $.Scratch.Get "categoryName" | .Site.Params.termThumbnails.Get }}
+    <img class="thumbnail" src="{{ relURL . }}" alt="Thumbnail" />
+    {{ else }}
     {{ $img := findRE "<img src=\"[^\"]+\"" .Content 1 }}
     {{ range $img }}
     {{ (print . "class=\"thumbnail\" alt=\"Thumbnail\" />") | safeHTML }}
+    {{ end }}
     {{ end }}
     {{ end }}
     {{ with .Description }}

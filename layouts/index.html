@@ -18,8 +18,8 @@
           <h1>{{ .text }}</h1>
           {{ if .summary }}
           <div class="summary">
-            {{ if .thumbnail }}
-              <img class="thumbnail" src="{{ .thumbnail }}" alt="thumbnail">
+            {{ with .thumbnail }}
+              <img class="thumbnail" src="{{ . }}" alt="thumbnail">
             {{ end }}
             {{ .summary }}
           </div>

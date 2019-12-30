@@ -17,9 +17,10 @@
             <div class="summary">
               {{ .Count }} Article(s)
 
-              {{ $thumbnail := $.Site.Params.termThumbnails.Get .Name }}
-              {{ if $thumbnail }}
-                <img src="{{ $thumbnail }}" alt="thumbnail">
+              {{ with $.Site.Params.termThumbnails.Get .Name }}
+              <div class="img-container">
+                <img src="{{ . }}" style="padding-top:0.5em" alt="thumbnail" />
+              </div>
               {{ end }}
             </div>
           </section>

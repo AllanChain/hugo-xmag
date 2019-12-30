@@ -327,6 +327,9 @@ tr:nth-child(even) {
   /* box-shadow: 0 0 8px #6c71c4; */
   text-align: center;
 }
+.summary {
+  word-wrap: break-word;
+}
 #TableOfContents,
 #TOC,
 .comments {
