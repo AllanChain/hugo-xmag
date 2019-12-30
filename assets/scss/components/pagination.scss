@@ -1,0 +1,32 @@
+.pagination {
+  text-align: center;
+}
+.pagination li {
+  display: inline;
+}
+.pagination a {
+  padding: 0 0.2em;
+  font-weight: 550;
+}
+.pagination {
+  padding-left: 0px;
+  line-height: 35px;
+}
+.page-ellipsis {
+  color: #268bd2;
+}
+.page-item a {
+  text-decoration: none;
+}
+.page-item {
+  background-color: #073642;
+  padding: 3px;
+  margin: 2px;
+  border-radius: 5px;
+}
+.page-item.disabled {
+  opacity: 0.5;
+}
+.page-item.active {
+  border: 1px dashed #2aa198;
+}

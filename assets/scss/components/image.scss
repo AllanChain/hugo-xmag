@@ -1,0 +1,35 @@
+.img-container {
+  position: relative;
+  text-align: center;
+}
+.img-container .img-tooltip {
+  visibility: hidden;
+  z-index: 1;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: $pageBG;
+  text-align: left;
+  opacity: 0.8;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  max-width: 80%;
+}
+.img-tooltip a {
+  white-space: nowrap;
+  font-size: 0.8em;
+  color: $pageFG;
+}
+.img-container:hover .img-tooltip {
+  visibility: visible;
+}
+
+.thumbnail {
+  max-height: 5.1em;
+  max-width: 6.8em;
+  float: left;
+  overflow: hidden;
+  margin: 5px 8px 5px 0;
+  /* box-shadow: 0 0 8px #6c71c4; */
+  text-align: center;
+}
