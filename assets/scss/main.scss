@@ -3,3 +3,85 @@
 @import 'colorschemes/SolarizedDark.scss';
 @import 'components/all.scss';
 @import 'style';
+
+body {
+  margin: 0;
+  line-height: 1.5em;
+  background: $pageBG;
+  color: $pageFG;
+}
+main {
+  margin-bottom: 15px;
+  a {
+      word-break: break-all;
+  }
+}
+article {
+  padding: 1em;
+  background: $articleBG;
+}
+a {
+  text-decoration: none;
+  color: $linkFG;
+}
+hr {
+  border-style: dashed;
+  color: #ddd;
+}
+/* code */
+pre {
+  border: 1px solid #268bd2;
+  box-shadow: 3px 3px 5px #268bd2;
+  overflow-x: auto;
+}
+code {
+  background: #002b36;
+  padding: 1px;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #586e75;
+}
+pre code {
+  /* background: none; */
+  padding: 0.5em;
+  display: block;
+}
+
+/* misc elements */
+img,
+iframe,
+video {
+  max-width: 100%;
+}
+blockquote {
+  background: #002b36;
+  border-left: 5px solid #268bd2;
+  padding: 3px 1em 3px;
+  margin-right: 0px;
+  margin-left: 30px;
+}
+table {
+  margin: 1em auto auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+}
+table thead th {
+  border-bottom: 1px solid #186798;
+}
+th,
+td {
+  padding: 5px;
+}
+tr:nth-child(even) {
+  background: #186798;
+}
+
+ol ol,
+ul ol {
+  list-style-type: lower-roman;
+}
+ol ol ol,
+ol ul ol,
+ul ol ol,
+ul ul ol {
+  list-style-type: lower-alpha;
+}

@@ -4,6 +4,7 @@
   margin-left: -15px;
 }
 .list section {
+  background: $cardBG;
   flex: 1 0 350px;
   box-sizing: border-box;
   margin: 1em 0 0 15px;
@@ -19,11 +20,6 @@
   .list section {
     max-width: calc(50% - 15px);
   }
-  .article-list h1 {
-    overflow-x: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-  }
 }
 @media (min-width: 1080px) {
   .list section {
@@ -37,21 +33,39 @@
   line-height: normal;
   color: $linkFG;
 }
-.article-list h1 {
-  margin: 0.2em auto 0.2em 0;
-}
-.article-list:hover h1 {
-  text-decoration: underline;
-}
 .article-list {
-  box-shadow: 0 0 8px #2aa198;
+  box-shadow: 0 0 8px $cardShadow;
   -webkit-transition: box-shadow 500ms linear;
   -ms-transition: box-shadow 500ms linear;
   transition: box-shadow 500ms linear;
+  h1 {
+    margin: 0.2em auto 0.2em 0;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
 }
 .article-list:hover {
-  box-shadow: 0 0 30px #268bd2;
+  box-shadow: 0 0 30px $cardShadowHover;
   -webkit-transition: box-shadow 500ms linear;
   -ms-transition: box-shadow 500ms linear;
   transition: box-shadow 500ms linear;
+  h1 {
+    text-decoration: underline;
+    white-space: inherit;
+  }
+}
+.date-author {
+  color: #657b83;
+}
+.summary {
+  word-wrap: break-word;
+}
+.thumbnail {
+  max-height: 5.1em;
+  max-width: 6.8em;
+  float: left;
+  overflow: hidden;
+  margin: 5px 8px 5px 0;
+  text-align: center;
 }

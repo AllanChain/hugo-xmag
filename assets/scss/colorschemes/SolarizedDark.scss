@@ -1,5 +1,17 @@
-@import '_solarized';
-$pageBG:    $Base03;
+@import "_solarized";
+
+$pageBG: $Base03;
+$pageFG: $Base2;
+
 $articleBG: $Base02;
-$pageFG:    $Base2;
-$linkFG:    $Blue;
+$linkFG: $Blue;
+
+$cardBG: $Base02;
+$cardShadow: $Cyan;
+$cardShadowHover: $Blue;
+
+$headerBG: $Base03;
+$headerBorder: $Violet;
+
+$footerBG: darken($Base02, 2%);
+$footerShadow: $Cyan;

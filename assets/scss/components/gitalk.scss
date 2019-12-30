@@ -1,0 +1,17 @@
+// Use more selectors to gain more priority
+#gitalk-container .gt-container {
+  .gt-header-textarea,
+  .gt-comment-content,
+  .gt-comment-body,
+  .gt-header-preview  {
+    text-align: left;
+    background-color: $pageBG;
+    color: $pageFG;
+  }
+  .gt-btn-preview {
+    background-color: $pageBG;
+  }
+  .gt-header-textarea:hover {
+    background-color: $pageBG;
+  }
+}

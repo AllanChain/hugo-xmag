@@ -1,71 +1,3 @@
-body {
-  margin: 0;
-  line-height: 1.5em;
-  background: $pageBG;
-  color: $pageFG;
-}
-hr {
-  border-style: dashed;
-  color: #ddd;
-}
-
-/* code */
-pre {
-  border: 1px solid #268bd2;
-  box-shadow: 3px 3px 5px #268bd2;
-  overflow-x: auto;
-}
-code {
-  background: #002b36;
-  padding: 1px;
-  border-radius: 5px;
-  box-shadow: 0 0 3px #586e75;
-}
-pre code {
-  /* background: none; */
-  padding: 0.5em;
-  display: block;
-}
-
-/* misc elements */
-img,
-iframe,
-video {
-  max-width: 100%;
-}
-blockquote {
-  background: #002b36;
-  border-left: 5px solid #268bd2;
-  padding: 3px 1em 3px;
-  margin-right: 0px;
-  margin-left: 30px;
-}
-table {
-  margin: 1em auto auto;
-  border-top: 1px solid #666;
-  border-bottom: 1px solid #666;
-}
-table thead th {
-  border-bottom: 1px solid #186798;
-}
-th,
-td {
-  padding: 5px;
-}
-tr:nth-child(even) {
-  background: #186798;
-}
-
-ol ol,
-ul ol {
-  list-style-type: lower-roman;
-}
-ol ol ol,
-ol ul ol,
-ul ol ol,
-ul ul ol {
-  list-style-type: lower-alpha;
-}
 .header div,
 .container,
 .copyright,
@@ -88,20 +20,10 @@ ul ul ol {
     padding: 0;
   }
 }
-main {
-  margin-bottom: 15px;
-}
-a {
-  text-decoration: none;
-  color: $linkFG;
-}
-main a {
-  word-break: break-all;
-}
 /* header and footer areas */
 .header {
-  border-top: 5px solid #6c71c4;
-  border-bottom: 4px double #6c71c4;
+  border-top: 5px solid $headerBorder;
+  border-bottom: 4px double $headerBorder;
   text-align: center;
   padding: 15px 0 5px;
 }
@@ -115,10 +37,8 @@ main a {
   left: 50%;
   transform: translate(-50%, 0%);
 }
-.header,
-.list section,
-article {
-  background: #073642;
+.header{
+  background: $headerBG;
 }
 .banner {
   font-size: 4em;
@@ -128,23 +48,17 @@ article {
   line-height: 1em;
 }
 .banner a {
-  color: #eee8d5;
+  color: $pageFG;
 }
 .categories a {
   font-size: 0.9em;
   font-weight: bolder;
   text-transform: uppercase;
 }
-.date-author {
-  color: #657b83;
-}
 .leading-h1 {
   font-size: 2em;
   text-align: center;
   margin-bottom: 5px;
-}
-article {
-  padding: 1em;
 }
 .article-meta {
   text-decoration: none;
@@ -152,14 +66,8 @@ article {
   padding: 5px;
   border-radius: 30px;
 }
-.menu,
-.article-meta,
-footer,
-.post-nav {
+.article-meta {
   text-align: center;
-}
-.article-footer {
-  text-align: left;
 }
 .title {
   font-size: 1.2em;
@@ -168,42 +76,11 @@ footer,
 .title {
   line-height: 1.2em;
 }
-.footer {
-  background: #073642;
-  box-shadow: 0 -3px 8px #2aa198;
-  padding: 1em 0;
-}
-.footer,
-.footer a {
-  color: #fff;
-}
-.copyright,
-.copyright a {
-  color: #ccc;
-}
-.menu {
-  margin-bottom: 0.5em;
-  flex-wrap: wrap;
-}
-.menu li {
-  display: inline-block;
-  font-weight: bolder;
-}
-.menu a {
-  padding: 0.5em;
-}
-.menu a:hover {
-  color: #2aa198;
-  background: #002b36;
-}
-.summary {
-  word-wrap: break-word;
-}
 #TableOfContents,
 #TOC,
 .comments {
   margin-top: 1rem;
-  border: 1px dashed #eee;
+  border: 1px dashed $pageFG;
   border-radius: 15px;
 }
 .comments a {
@@ -211,19 +88,4 @@ footer,
   width: 100%;
   text-align: center;
   font-size: 1.2em;
-}
-.terms {
-  font-size: 1.3em;
-}
-.post-nav {
-  margin: 0.5em 0;
-  display: flex;
-  justify-content: space-between;
-}
-.footnotes {
-  font-size: 0.9em;
-}
-.footnotes hr {
-  width: 50%;
-  margin-left: 0;
 }

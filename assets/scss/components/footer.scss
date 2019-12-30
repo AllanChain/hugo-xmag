@@ -1,0 +1,51 @@
+.article-footer {
+  text-align: left;
+}
+.menu,
+footer,
+.post-nav {
+  text-align: center;
+}
+.footer {
+  background: $footerBG;
+  box-shadow: 0 -3px 8px $footerShadow;
+  padding: 1em 0;
+}
+.footer,
+.footer a {
+  color: #fff;
+}
+.copyright,
+.copyright a {
+  color: #ccc;
+}
+.menu {
+  margin-bottom: 0.5em;
+  flex-wrap: wrap;
+}
+.menu li {
+  display: inline-block;
+  font-weight: bolder;
+}
+.menu a {
+  padding: 0.5em;
+}
+.menu a:hover {
+  color: #2aa198;
+  background: #002b36;
+}
+.terms {
+  font-size: 1.3em;
+}
+.post-nav {
+  margin: 0.5em 0;
+  display: flex;
+  justify-content: space-between;
+}
+.footnotes {
+  font-size: 0.9em;
+}
+.footnotes hr {
+  width: 50%;
+  margin-left: 0;
+}
