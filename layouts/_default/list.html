@@ -31,7 +31,7 @@
     {{ else }}
     {{ $img := findRE "<img src=\"[^\"]+\"" .Content 1 }}
     {{ range $img }}
-    {{ (print . "class=\"thumbnail\" alt=\"Thumbnail\" />") | safeHTML }}
+    {{ (print . " class=\"thumbnail\" alt=\"Thumbnail\" />") | safeHTML }}
     {{ end }}
     {{ end }}
     {{ end }}
@@ -41,7 +41,6 @@
       {{ $.Scratch.Set "summary" ((delimit (findRE "(<p.*?>(.|\n)*?</p>\\s*)+" .Content) "[&hellip;] ") | plainify | truncate (default 200 .Site.Params.summary_length) (default " &hellip;" .Site.Params.text.truncated ) | replaceRE "&amp;" "&" | safeHTML) }}
     {{ end }}
     {{ $.Scratch.Get "summary" }}
-    </a>
   </div>
 </section>
 {{ end }}
