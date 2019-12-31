@@ -26,12 +26,12 @@
     {{ with .Params.thumbnail }}
     <img class="thumbnail" src="{{ relURL . }}" alt="Thumbnail" />
     {{ else }}
-    {{ with $.Scratch.Get "categoryName" | .Site.Params.termThumbnails.Get }}
-    <img class="thumbnail" src="{{ relURL . }}" alt="Thumbnail" />
-    {{ else }}
     {{ $img := findRE "<img src=\"[^\"]+\"" .Content 1 }}
     {{ range $img }}
     {{ (print . " class=\"thumbnail\" alt=\"Thumbnail\" />") | safeHTML }}
+    {{ else }}
+    {{ with $.Scratch.Get "categoryName" | .Site.Params.termThumbnails.Get }}
+    <img class="thumbnail" src="{{ relURL . }}" alt="Thumbnail" />
     {{ end }}
     {{ end }}
     {{ end }}
