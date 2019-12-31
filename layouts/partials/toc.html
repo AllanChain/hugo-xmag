@@ -1,6 +1,7 @@
 {{- $headers := findRE "<h[1-4].*?>(.|\n])+?</h[1-4]>" .Content -}}
 {{- $has_headers := ge (len $headers) 1 -}}
 {{- if $has_headers -}}
+{{- $.Scratch.Set "bareul" slice -}}
 <div id="TableOfContents">
 <ul>
   {{- range $i, $header := $headers -}}
@@ -18,32 +19,47 @@
       {{- $prevHeaderLevel := index (findRE "[1-4]" (index $headers (sub $i 1)) 1) 0 -}}
       {{- $prevHeaderLevel := len (seq $prevHeaderLevel) -}}
         {{- if gt $headerLevel $prevHeaderLevel -}}
-          {{- range seq (sub $headerLevel $prevHeaderLevel) -}}
+          {{- range seq $prevHeaderLevel (sub $headerLevel 1) -}}
             <ul>
-          {{- end}}
-        {{- end}}
-        {{- if lt $headerLevel $prevHeaderLevel -}}
-          {{- range seq (sub $prevHeaderLevel $headerLevel) -}}
-            </li></ul>
-          {{- end}}
+            {{- if ne $prevHeaderLevel . -}}
+              {{- $.Scratch.Add "bareul" . -}}
+            {{- end -}}
+          {{- end -}}
+        {{- else -}}
           </li>
-        {{- end}}
-        {{- if eq $headerLevel $prevHeaderLevel -}}
-          </li>
-        {{- end}}
+          {{- if lt $headerLevel $prevHeaderLevel -}}
+            {{- range seq (sub $prevHeaderLevel 1) -1 $headerLevel -}}
+              {{- if in ($.Scratch.Get "bareul") . -}}
+                </ul>
+                {{- $tmp := $.Scratch.Get "bareul" -}}
+                {{- $.Scratch.Delete "bareul" -}}
+                {{- $.Scratch.Set "bareul" slice}}
+                {{- range seq (sub (len $tmp) 1) -}}
+                  {{- $.Scratch.Add "bareul" (index $tmp .) -}}
+                {{- end -}}
+              {{- else -}}
+                </ul></li>
+              {{- end -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
         <li>
           <a href="#{{- $cleanedID  -}}">{{- $header | safeHTML -}}</a>
-    {{- else}}
+    {{- else -}}
     <li>
       <a href="#{{- $cleanedID -}}">{{- $header | safeHTML -}}</a>
     {{- end -}}
   {{- end -}}
   {{- $firstHeaderLevel := len (seq (index (findRE "[1-4]" (index $headers 0) 1) 0)) -}}
   {{- $lastHeaderLevel := len (seq (index (findRE "[1-4]" (index $headers (sub (len $headers) 1)) 1) 0)) -}}
+  </li>
   {{- range seq (sub $lastHeaderLevel $firstHeaderLevel) -}}
-    </li></ul>
+    {{- if in ($.Scratch.Get "bareul") (add . $firstHeaderLevel) -}}
+      </ul>
+    {{- else -}}
+      </ul></li>
+    {{- end -}}
   {{- end -}}
-        </li>
 </ul>
 </div>
 {{- end -}}
