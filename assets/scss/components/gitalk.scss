@@ -5,13 +5,18 @@
   .gt-comment-body,
   .gt-header-preview  {
     text-align: left;
-    background-color: $pageBG;
-    color: $pageFG;
+    background-color: $gitalkBG;
+    color: $gitalkFG;
   }
-  .gt-btn-preview {
-    background-color: $pageBG;
-  }
+  .gt-btn-preview,
+  .gt-popup,
   .gt-header-textarea:hover {
-    background-color: $pageBG;
+    background-color: $gitalkBG;
   }
+  .gt-popup,
+  .gt-copyright,
+  .gt-meta {
+    border-color: $gitalkBorder;
+  }
+  color: $gitalkFG;
 }
