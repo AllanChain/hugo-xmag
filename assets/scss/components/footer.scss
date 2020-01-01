@@ -49,3 +49,11 @@ footer,
   width: 50%;
   margin-left: 0;
 }
+.to-top {
+  font-size: 2em;
+  font-weight: 700;
+  position: fixed;
+  right: 5%;
+  bottom: 3%;
+  color: $linkFG;
+}
