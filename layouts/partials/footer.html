@@ -1,4 +1,6 @@
-<a href="#title" class="to-top">&#10224;</a>
+{{ if .IsPage }}
+<a href="#article-meta" class="to-top">&#10224;</a>
+{{ end }}
 <footer>
 {{ partial "foot_custom.html" . }}
 <div class="footer">
