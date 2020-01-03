@@ -30,14 +30,17 @@ hr {
 }
 /* code */
 pre {
-  border: 1px solid #268bd2;
-  box-shadow: 3px 3px 5px #268bd2;
+  border: 1px solid $preBorder;
+  box-shadow: 3px 3px 5px $preShadow;
   overflow-x: auto;
 }
 pre code {
-  /* background: none; */
   padding: 0.5em;
   display: block;
+}
+p code {
+  background-color: $codeBG;
+  border-radius: 10px;
 }
 
 /* misc elements */
