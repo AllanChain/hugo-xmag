@@ -6,7 +6,7 @@
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script charset="utf-8">
-window.MathJax = {
+  window.MathJax = {
   tex: {
     inlineMath: [['$', '$'], ['\\(', '\\)']]
   }
@@ -14,34 +14,48 @@ window.MathJax = {
 </script>
 {{ end }}
 
-{{ if and (not .Params.disable_highlight) (in (string .Content) "</pre>") }}
-<script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.15.10/build/highlight.min.js"></script>
-<script>
-hljs.configure({languages: []});
-hljs.initHighlightingOnLoad();
-</script>
-{{ end }}
-
 {{ if .Site.Params.Gitalk.enabled }}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
-const sp = location.pathname.split('/');
-let id = sp[sp.length - 1];
-if (id == "") id = sp[sp.length - 2];
+  const sp = location.pathname.split('/');
+  let id = sp[sp.length - 1];
+  if (id == "") id = sp[sp.length - 2];
 
-const gitalk = new Gitalk({
-  clientID: {{ .Site.Params.Gitalk.clientID }},
-  clientSecret: {{ .Site.Params.Gitalk.clientSecret }},
-  repo: {{ .Site.Params.Gitalk.repo }},
-  owner: {{ .Site.Params.Gitalk.owner }},
-  admin: {{ .Site.Params.Gitalk.admin }},
-  id: decodeURI(id),      // Ensure uniqueness and length less than 50
-  distractionFreeMode: false  // Facebook-like distraction free mode
-});
+  const gitalk = new Gitalk({
+    clientID: {{ .Site.Params.Gitalk.clientID }},
+    clientSecret: {{ .Site.Params.Gitalk.clientSecret }},
+    repo: {{ .Site.Params.Gitalk.repo }},
+    owner: {{ .Site.Params.Gitalk.owner }},
+    admin: {{ .Site.Params.Gitalk.admin }},
+    id: decodeURI(id),      // Ensure uniqueness and length less than 50
+    distractionFreeMode: false  // Facebook-like distraction free mode
+  });
 
-window.onload = function() {
-  gitalk.render('gitalk-container');
-}
+  window.onload = function() {
+    gitalk.render('gitalk-container');
+  }
 </script>
 {{ end }}
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script>
+  /*Scroll to top when arrow up clicked BEGIN*/
+  $(window).scroll(function() {
+    var height = $(window).scrollTop();
+    if (height > 100) {
+      $('#to-top').fadeIn();
+    } else {
+      $('#to-top').fadeOut();
+    }
+  });
+  $(function() {
+    $("#to-top").click(function(event) {
+      event.preventDefault();
+      $("html, body").animate({ scrollTop: 0 }, "slow");
+      return false;
+    });
+  });
+</script>

@@ -50,10 +50,17 @@ footer,
   margin-left: 0;
 }
 .to-top {
+  display: none;
   font-size: 2em;
   font-weight: 700;
   position: fixed;
   right: 5%;
   bottom: 3%;
   color: $linkFG;
+  cursor: default;
+  @include transition(bottom 500ms ease);
+}
+.to-top:hover {
+  bottom: 4%;
+  @include transition(bottom 500ms ease);
 }
