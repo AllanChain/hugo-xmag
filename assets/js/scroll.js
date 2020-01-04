@@ -2,7 +2,9 @@
 let turningHeight = null;
 let originalHeight = null;
 let toggleFlag = null;
-$(window).scroll(doScroll);
+if (ISPAGE) {
+  $(window).scroll(doScroll);
+}
 function doScroll() {
   let height = $(window).scrollTop();
   let flag = height > turningHeight;
@@ -17,7 +19,7 @@ function toggleUp() {
     $(".article-meta").removeClass("meta-stick");
     $("main").css("padding-top", 0);
     $(".menu-btn").hide();
-    toc.hide();
+    toc.css("max-height", 0);
   }
   if (window.innerWidth >= 1200) {
     toc.addClass("toc-abs");
@@ -41,40 +43,46 @@ function toggleDown() {
     $(".toc-stick").css("top", 0);
   }
 }
+function showMenu(ele) {
+  let toc = $("#TableOfContents");
+  if (toc.css("top") == "auto") {
+    toc.css("top", $(".article-meta").outerHeight());
+    toc.removeClass("toc-abs");
+    toc.removeClass("toc-stick");
+    toc.addClass("toc-mobile");
+  }
+  if (toc.css("max-height") == "0px")
+    toc.css("max-height", "100%");
+  else
+    toc.css("max-height", 0);
+}
+function scrollToHeader(ele) {
+  if (window.innerWidth <= 950) {
+    showMenu();
+  }
+  let pos = $(ele).offset().top - 50;
+  $("html, body").animate({ scrollTop: pos });
+  return false;
+}
 $(function() {
   toggleUp();
+  // Wait DOM ready
   setTimeout(doScroll, 100);
+
   let tmp = $(".article-meta h1").offset();
   if (tmp) turningHeight = tmp.top;
   tmp = $(".article-meta h3").offset();
   if (tmp) turningHeight = tmp.top;
   tmp = $(".article-meta p").offset();
   if (tmp) turningHeight = tmp.top;
+
   let meta = $(".article-meta");
   originalHeight = meta.outerHeight();
   $(".toc-abs").css("top", turningHeight);
+
   $("#to-top").click(function(event) {
     event.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, "slow");
     return false;
   });
 });
-let mobileTocTop = null;
-function showMenu(ele) {
-  let toc = $("#TableOfContents");
-  toc.toggle();
-  if (! mobileTocTop) {
-    toc.css("top", $(".article-meta").outerHeight());
-    toc.removeClass("toc-abs");
-    toc.removeClass("toc-stick");
-    toc.addClass("toc-mobile");
-  }
-}
-function scrollToHeader(ele) {
-  if (window.innerWidth <= 950) {
-    $("#TableOfContents").toggle();
-  }
-  let pos = $(ele).offset().top - 50;
-  $("html, body").animate({ scrollTop: pos });
-  return false;
-}

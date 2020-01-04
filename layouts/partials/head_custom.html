@@ -1,3 +1,10 @@
+<script charset="utf-8">
+  {{- if .IsPage -}}
+  const ISPAGE = true;
+  {{- else -}}
+  const ISPAGE = false;
+  {{- end -}}
+</script>
 {{ with .Site.Params.favicon }}
 <link rel="shortcut icon" href="{{ . }}" type="image/x-icon">
 {{ end }}
@@ -33,7 +40,9 @@
   });
 
   window.onload = function() {
-    gitalk.render('gitalk-container');
+    if (ISPAGE) {
+      gitalk.render('gitalk-container');
+    }
   }
 </script>
 {{ end }}
