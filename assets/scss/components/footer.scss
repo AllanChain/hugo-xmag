@@ -50,17 +50,90 @@ footer,
   margin-left: 0;
 }
 .to-top {
-  display: none;
   font-size: 2em;
   font-weight: 700;
   position: fixed;
   right: 5%;
-  bottom: 3%;
+  bottom: -3%;
+  opacity: 0;
   color: $linkFG;
   cursor: default;
-  @include transition(bottom 500ms ease);
+  @include transition(500ms ease);
 }
 .to-top:hover {
-  bottom: 4%;
-  @include transition(bottom 500ms ease);
+  margin-bottom: 10px;
+  color: $Cyan;
+  @include transition(500ms ease);
+}
+#TableOfContents,
+#TOC {
+  background-color: $pageBG;
+  padding-right: 2px;
+  font-size: 0.8em;
+  white-space: normal;
+  display: none;
+  overflow-y: scroll;
+  ul {
+    padding-left: 15px;
+  }
+}
+@media(min-width: 1200px) {
+  #TableOfContents,
+  #TOC {
+    display: block;
+    width: calc(50vw - 405px);
+  }
+}
+#TableOfContents.toc-mobile {
+  width: 70%;
+  font-size: 1em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  padding-left: 5px;
+}
+.toc-abs {
+  position: absolute;
+  top: 200px;
+  left: 0;
+}
+.toc-stick {
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+#TableOfContents::-webkit-scrollbar {
+  width: 0;
+}
+@media (max-width: 950px) {
+  .meta-stick {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0;
+    p, .categories, h3 {
+      display: none;
+    }
+    h1 {
+      margin: 0;
+      display: inline-block;
+    }
+  }
+}
+.menu-btn {
+  display: none;
+  cursor: pointer;
+  float: left;
+  padding-left: 30px;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: $pageFG;
+  margin: 6px 0;
 }

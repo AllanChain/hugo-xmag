@@ -41,21 +41,11 @@
   src="https://code.jquery.com/jquery-3.4.1.min.js"
   integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
   crossorigin="anonymous"></script>
-<script>
-  /*Scroll to top when arrow up clicked BEGIN*/
-  $(window).scroll(function() {
-    var height = $(window).scrollTop();
-    if (height > 100) {
-      $('#to-top').fadeIn();
-    } else {
-      $('#to-top').fadeOut();
-    }
-  });
-  $(function() {
-    $("#to-top").click(function(event) {
-      event.preventDefault();
-      $("html, body").animate({ scrollTop: 0 }, "slow");
-      return false;
-    });
-  });
-</script>
+<!-- {{ $plugins := resources.Get "js/plugins.js" }} -->
+<!-- {{ $global := resources.Get "js/global.js" }} -->
+{{ $scroll := resources.Get "js/scroll.js" }}
+{{ $js := slice $scroll | resources.Concat "js/bundle.js" }}
+{{- if (eq (getenv "HUGO_ENV") "production") -}}
+  {{- $js = $js | minify | fingerprint "md5" -}}
+{{- end -}}
+<script src="{{ $js.RelPermalink }}"></script>

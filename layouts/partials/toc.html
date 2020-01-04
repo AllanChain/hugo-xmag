@@ -62,10 +62,10 @@
           {{- end -}}
         {{- end -}}
         <li>
-          <a href="#{{- $cleanedID  -}}">{{- $header | safeHTML -}}</a>
+          <a onclick="scrollToHeader('#{{- $cleanedID  -}}')">{{- $header | safeHTML -}}</a>
     {{- else -}}
     <li>
-      <a href="#{{- $cleanedID -}}">{{- $header | safeHTML -}}</a>
+      <a onclick="scrollToHeader('#{{- $cleanedID -}}')">{{- $header | safeHTML -}}</a>
     {{- end -}}
   {{- end -}}
   <!-- {{- $firstHeaderLevel := len (seq (index (findRE "[1-4]" (index $headers 0) 1) 0)) -}} -->
