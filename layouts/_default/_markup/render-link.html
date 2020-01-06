@@ -1,8 +1,13 @@
 {{ $link := .Destination }}
 {{ $isRemote := strings.HasPrefix $link "http" }}
 {{- if not $isRemote -}}
-{{ $url := urls.Parse .Destination }}
-{{ $fragment := "" }}
-{{- with $url.Fragment }}{{ $fragment = printf "#%s" . }}{{ end -}}
-{{- with .Page.GetPage $url.Path }}{{ $link = printf "%s%s" .RelPermalink $fragment }}{{ end }}{{ end -}}
+  {{ $url := urls.Parse .Destination }}
+  {{ $fragment := "" }}
+  {{- with $url.Fragment }}{{ $fragment = printf "#%s" . }}{{ end -}}
+  {{- if $url.Path -}}{{/* ensure it referring to another page */}}
+    {{- with .Page.GetPage $url.Path }}{{ $url.Path }}{{ $link = printf "%s%s" .RelPermalink $fragment }}{{.Permalink}}{{ end }}
+  {{- else -}}
+    {{ $link = $fragment }}
+  {{ end }}
+{{ end -}}
 <a href="{{ $link | safeURL }}"{{ with .Title}} title="{{ . }}"{{ end }}{{ if $isRemote }} target="_blank"{{ end }}>{{ .Text | safeHTML }}</a>
