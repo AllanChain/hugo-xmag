@@ -14,7 +14,6 @@
 {{- $firstHeaderLevel := len (seq (index (findRE "[1-4]" (index $headers 0) 1) 0)) -}}
 
 {{- $.Scratch.Set "bareul" slice -}}
-<div id="TableOfContents">
 <ul>
   {{- range seq (sub $firstHeaderLevel $largest) -}}
     <ul>
@@ -62,10 +61,10 @@
           {{- end -}}
         {{- end -}}
         <li>
-          <a onclick="scrollToHeader('#{{- $cleanedID  -}}')">{{- $header | safeHTML -}}</a>
+          <a href="#{{- $cleanedID  -}}">{{- $header | safeHTML -}}</a>
     {{- else -}}
     <li>
-      <a onclick="scrollToHeader('#{{- $cleanedID -}}')">{{- $header | safeHTML -}}</a>
+      <a href="#{{- $cleanedID -}}">{{- $header | safeHTML -}}</a>
     {{- end -}}
   {{- end -}}
   <!-- {{- $firstHeaderLevel := len (seq (index (findRE "[1-4]" (index $headers 0) 1) 0)) -}} -->
@@ -80,5 +79,4 @@
     {{- end -}}
   {{- end -}}
 </ul>
-</div>
 {{- end -}}

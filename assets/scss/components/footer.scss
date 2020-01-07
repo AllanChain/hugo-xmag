@@ -66,8 +66,7 @@ footer,
   color: $Cyan;
   @include transition(500ms ease);
 }
-#TableOfContents,
-#TOC {
+#menu-toc {
   background-color: $pageBG;
   padding-right: 2px;
   font-size: 0.8em;
@@ -80,13 +79,12 @@ footer,
   }
 }
 @media(min-width: 1200px) {
-  #TableOfContents,
-  #TOC {
+  #menu-toc {
     display: block;
     width: calc(50vw - 405px);
   }
 }
-#TableOfContents.toc-mobile {
+#menu-toc.toc-mobile {
   display: block;
   width: 80%;
   font-size: 1em;
@@ -99,20 +97,20 @@ footer,
   z-index: 98;
   @include transition(500ms ease);
 }
-#TableOfContents.toc-abs {
+#menu-toc.toc-abs {
   position: absolute;
   top: 200px;
   left: 0;
   max-height: 100% !important;
 }
-#TableOfContents.toc-stick {
+#menu-toc.toc-stick {
   position: fixed;
   top: 0 !important;
   left: 0;
   bottom: 0;
   max-height: 100% !important;
 }
-#TableOfContents::-webkit-scrollbar {
+#menu-toc::-webkit-scrollbar {
   width: 0;
 }
 @media (max-width: 950px) {

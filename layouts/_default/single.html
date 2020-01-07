@@ -1,4 +1,15 @@
 {{ partial "header.html" . }}
+
+<!-- use id here to help handling all the class in js -->
+<div id="menu-toc">
+{{ if eq .Params.toc false }}
+{{ else }}
+<div id="toc">
+{{ partial "toc.html" . }}
+</div>
+{{ end }}
+</div>
+
 <div class="container">
 <article>
   <div class="article-meta">
@@ -27,11 +38,6 @@
   {{ partial "meta.html" . }}
 
 </div>
-
-{{ if eq .Params.toc false }}
-{{ else }}
-{{ partial "toc.html" . }}
-{{ end }}
 
 <main>
 {{ .Content }}

@@ -8,7 +8,7 @@ let prevWidth = null;
 let doScroll = () => mgr.doScroll();
 
 const turningWidth = 950;
-const posibleElements = [".article-meta h1", ".article-meta h3", ".article-meta p"];
+const posibleElements = [".article-meta p", ".article-meta h3", ".article-meta h1"];
 
 
 class ToggleMgr {
@@ -62,10 +62,10 @@ class MobileToggleMgr extends ToggleMgr {
     else this.hideMenu();
   }
   showMenu() {
-      toc.css("max-height", "100%");
+    toc.css("max-height", "100%");
   }
   hideMenu() {
-      toc.css("max-height", 0);
+    toc.css("max-height", 0);
   }
   exit() {
     toc.css("max-height", 0);
@@ -113,21 +113,14 @@ function initMgr() {
     mgr = new MobileToggleMgr();
   else mgr = new PCToggleMgr();
 }
-function scrollToHeader(ele) {
-  if (mgr.state == "mobile") mgr.hideMenu();
-  let pos = $(ele).offset().top - 50;
-  $("html, body").animate({ scrollTop: pos });
-}
 $(function() {
-  if (ISPAGE) {
-    toc = $("#TableOfContents");
-    initMgr();
-    doScroll();
-    $(window).scroll(doScroll);
-    $(window).resize(changeMgr);
-    $("#to-top").click(
-      (event) => $("html, body").animate({ scrollTop: 0 }, "slow")
-    );
-    $(".menu-btn").click(() => mgr.toggleMenu());
-  }
+  toc = $("#menu-toc");
+  initMgr();
+  doScroll();
+  $(window).scroll(doScroll);
+  $(window).resize(changeMgr);
+  $("#to-top").click(
+    (event) => $("html, body").animate({ scrollTop: 0 }, "slow")
+  );
+  $(".menu-btn").click(() => mgr.toggleMenu());
 });
