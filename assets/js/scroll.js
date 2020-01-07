@@ -30,10 +30,10 @@ class ToggleMgr {
     this.toggleFlag = flag;
   }
   toggleUp() {
-    $('#to-top').css({bottom: "-3%", opacity: 0});
+    $('#to-top').removeClass("visible");
   }
   toggleDown() {
-    $('#to-top').css({bottom: "3%", opacity: 1});
+    $('#to-top').addClass("visible");
   }
   mobileHideMenu() {
     // just let PCToggleMgr not BB
@@ -129,9 +129,18 @@ $(function() {
   doScroll();
   $(window).scroll(doScroll);
   $(window).resize(changeMgr);
-  $("#to-top").click(
-    (event) => $("html, body").animate({ scrollTop: 0 }, "slow")
-  );
+  // if use click the animation will prevent the mouse up
+  // event to happen on the rocket
+  $("#to-top").mousedown(function(event) {
+    $("html, body").animate({ scrollTop: 0 }, 500)
+    // if just use css :active, the time for active is
+    // not under control, so just do js stuff
+    $('#to-top').addClass("active");
+    // make sure remove active after `visible` removed
+    setTimeout(function() {
+      $('#to-top').removeClass("active");
+    }, 600);
+  });
   $(".menu-btn").click(() => mgr.toggleMenu());
   $("main").click(() => mgr.mobileHideMenu());
 });

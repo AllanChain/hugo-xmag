@@ -2,17 +2,17 @@
 
 <!-- use id here to help handling all the class in js -->
 <div id="menu-toc">
+  <h3 class="toc-title">{{ .Title }}</h3>
 {{ if eq .Params.toc false }}
 {{ else }}
-<div id="toc">
-  <h3>Table of Contents</h3>
-{{ partial "toc.html" . }}
-</div>
+  <div id="toc">
+    {{ partial "toc.html" . }}
+  </div>
 {{ end }}
 <hr>
-<div class="menu-foot">
-{{ partial "foot_custom.html" . }}
-</div>
+  <div class="menu-foot">
+    {{ partial "foot_custom.html" . }}
+  </div>
 </div>
 
 <div class="container">

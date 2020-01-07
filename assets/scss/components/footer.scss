@@ -48,18 +48,25 @@ footer {
 }
 .to-top {
   font-size: 2em;
-  font-weight: 700;
   position: fixed;
   right: 5%;
   bottom: -3%;
   opacity: 0;
-  color: $linkFG;
   cursor: default;
-  @include transition(500ms ease);
+  @include transition(500ms ease-out);
   @include transform(rotate(-50deg));
 }
+.to-top.visible {
+  bottom: 3%;
+  opacity: 1;
+}
 .to-top:hover {
-  margin-bottom: 10px;
-  color: $Cyan;
-  @include transition(500ms ease);
+  bottom: 4%;
+  right: 5%;
+}
+.to-top.active {
+  bottom: 60%;
+  right: 8%;
+  opacity: 0;
+  @include transition(500ms ease-in);
 }
