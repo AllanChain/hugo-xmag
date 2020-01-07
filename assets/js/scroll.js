@@ -1,54 +1,100 @@
-/*Scroll to top when arrow up clicked BEGIN*/
-let turningHeight = null;
-let originalHeight = null;
-let toggleFlag = null;
-if (ISPAGE) {
-  $(window).scroll(doScroll);
+'use strict'
+let toc = null;
+let mgr;
+let prevWidth = null;
+// Directly bind `mgr.doScroll` will make `this` become window
+let doScroll = () => mgr.doScroll();
+const turningWidth = 950;
+const posibleElements = [".article-meta h1", ".article-meta h3", ".article-meta p"];
+
+class ToggleMgr {
+  constructor() {
+    this.toggleFlag = null;
+    for(let i=0; i < posibleElements.length; i++) {
+      let tmp = $(posibleElements[i]).offset();
+      if (tmp) {
+        this.turningHeight = tmp.top;
+        break;
+      }
+    }
+  }
+  doScroll() {
+    let flag = $(window).scrollTop() > this.turningHeight;
+    if (flag == this.toggleFlag) return;
+    if (flag) this.toggleDown();
+    else this.toggleUp();
+    this.toggleFlag = flag;
+  }
+  toggleUp() {
+    $('#to-top').css({bottom: "-3%", opacity: 0});
+  }
+  toggleDown() {
+    $('#to-top').css({bottom: "3%", opacity: 1});
+  }
 }
-function doScroll() {
-  let height = $(window).scrollTop();
-  let flag = height > turningHeight;
-  if (flag == toggleFlag) return;
-  if (flag) toggleDown();
-  else toggleUp();
-}
-function toggleUp() {
-  let toc = $("#TableOfContents");
-  $('#to-top').css({bottom: "-3%", opacity: 0});
-  if (window.innerWidth <= 950) {
+class MobileToggleMgr extends ToggleMgr {
+  constructor() {
+    super();
+    this.originalHeight = $(".article-meta").outerHeight();
+    this.doScroll();
+  }
+  toggleUp() {
+    super.toggleUp();
     $(".article-meta").removeClass("meta-stick");
     $("main").css("padding-top", 0);
-    $(".menu-btn").hide();
     toc.css("max-height", 0);
   }
-  if (window.innerWidth >= 1200) {
-    toc.addClass("toc-abs");
-    toc.removeClass("toc-stick");
-    $(".toc-abs").css("top", turningHeight);
-  }
-}
-function toggleDown() {
-  let toc = $("#TableOfContents");
-  $('#to-top').css({bottom: "3%", opacity: 1});
-
-  if (window.innerWidth <= 950) {
-    let deltaHeight = originalHeight;
-    $("main").css("padding-top", deltaHeight + "px");
-    $(".menu-btn").css("display", "inline-block");
+  toggleDown() {
+    super.toggleDown();
+    $("main").css("padding-top", this.originalHeight + "px");
     $(".article-meta").addClass("meta-stick");
   }
-  if (window.innerWidth >= 1200) {
-    toc.addClass("toc-stick");
-    toc.removeClass("toc-abs");
-    $(".toc-stick").css("top", 0);
+  exit() {
+    $(".article-meta").removeClass("meta-stick");
+    $("main").css("padding-top", 0);
   }
 }
+class PCToggleMgr extends ToggleMgr {
+  constructor() {
+    super();
+    toc.css("top", this.turningHeight);
+    this.doScroll();
+  }
+  toggleUp() {
+    super.toggleUp();
+    toc.removeClass();
+    toc.addClass("toc-abs");
+  }
+  toggleDown() {
+    super.toggleDown();
+    toc.removeClass();
+    toc.addClass("toc-stick");
+  }
+  exit() {
+  }
+}
+function changeMgr() {
+  const width = window.innerWidth;
+  if (width <= turningWidth && prevWidth > turningWidth) {
+    if (mgr) mgr.exit();
+    mgr = new MobileToggleMgr();
+  }
+  if (width > turningWidth && prevWidth <= turningWidth) {
+    if (mgr) mgr.exit();
+    mgr = new PCToggleMgr();
+  }
+  prevWidth = width;
+}
+function initMgr() {
+  prevWidth = window.innerWidth;
+  if (prevWidth <= turningWidth)
+    mgr = new MobileToggleMgr();
+  else mgr = new PCToggleMgr();
+}
 function showMenu(ele) {
-  let toc = $("#TableOfContents");
-  if (toc.css("top") == "auto") {
+  if (toc[0].className != "toc-mobile") {
     toc.css("top", $(".article-meta").outerHeight());
-    toc.removeClass("toc-abs");
-    toc.removeClass("toc-stick");
+    toc.removeClass();
     toc.addClass("toc-mobile");
   }
   if (toc.css("max-height") == "0px")
@@ -65,24 +111,18 @@ function scrollToHeader(ele) {
   return false;
 }
 $(function() {
-  toggleUp();
-  // Wait DOM ready
-  setTimeout(doScroll, 100);
-
-  let tmp = $(".article-meta h1").offset();
-  if (tmp) turningHeight = tmp.top;
-  tmp = $(".article-meta h3").offset();
-  if (tmp) turningHeight = tmp.top;
-  tmp = $(".article-meta p").offset();
-  if (tmp) turningHeight = tmp.top;
-
-  let meta = $(".article-meta");
-  originalHeight = meta.outerHeight();
-  $(".toc-abs").css("top", turningHeight);
+  // toggleUp();
+  // // Wait DOM ready
+  // setTimeout(doScroll, 100);
+  toc = $("#TableOfContents");
+  initMgr();
+  doScroll();
+  if (ISPAGE) {
+    $(window).scroll(doScroll);
+    $(window).resize(changeMgr);
+  }
 
   $("#to-top").click(function(event) {
-    event.preventDefault();
     $("html, body").animate({ scrollTop: 0 }, "slow");
-    return false;
   });
 });

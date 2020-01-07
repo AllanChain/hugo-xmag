@@ -59,6 +59,7 @@ footer,
   color: $linkFG;
   cursor: default;
   @include transition(500ms ease);
+  @include transform(rotate(-50deg));
 }
 .to-top:hover {
   margin-bottom: 10px;
@@ -74,7 +75,6 @@ footer,
   display: none;
   overflow-y: scroll;
   max-height: 0;
-  @include transition(500ms ease);
   ul {
     padding-left: 15px;
   }
@@ -88,7 +88,7 @@ footer,
 }
 #TableOfContents.toc-mobile {
   display: block;
-  width: 70%;
+  width: 80%;
   font-size: 1em;
   position: fixed;
   top: 0;
@@ -97,20 +97,20 @@ footer,
   padding-left: 5px;
   box-shadow: 10px 0 60px $cardShadow;
   z-index: 98;
+  @include transition(500ms ease);
 }
 #TableOfContents.toc-abs {
   position: absolute;
   top: 200px;
   left: 0;
-  bottom: 0;
-  max-height: 100%;
+  max-height: 100% !important;
 }
 #TableOfContents.toc-stick {
   position: fixed;
-  top: 0;
+  top: 0 !important;
   left: 0;
   bottom: 0;
-  max-height: 100%;
+  max-height: 100% !important;
 }
 #TableOfContents::-webkit-scrollbar {
   width: 0;
@@ -131,6 +131,9 @@ footer,
       margin: 0;
       display: inline-block;
       font-size: 1.2em;
+    }
+    .menu-btn {
+      display: block;
     }
   }
 }
