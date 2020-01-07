@@ -1,11 +1,15 @@
 'use strict'
+
 let toc = null;
 let mgr;
 let prevWidth = null;
+
 // Directly bind `mgr.doScroll` will make `this` become window
 let doScroll = () => mgr.doScroll();
+
 const turningWidth = 950;
 const posibleElements = [".article-meta h1", ".article-meta h3", ".article-meta p"];
+
 
 class ToggleMgr {
   constructor() {
@@ -35,7 +39,10 @@ class ToggleMgr {
 class MobileToggleMgr extends ToggleMgr {
   constructor() {
     super();
+    this.state = 'mobile';
     this.originalHeight = $(".article-meta").outerHeight();
+    toc.css("top", $(".article-meta").outerHeight());
+    toc.addClass("toc-mobile");
     this.doScroll();
   }
   toggleUp() {
@@ -48,15 +55,29 @@ class MobileToggleMgr extends ToggleMgr {
     super.toggleDown();
     $("main").css("padding-top", this.originalHeight + "px");
     $(".article-meta").addClass("meta-stick");
+    toc.css("top", $(".article-meta").outerHeight());
+  }
+  toggleMenu() {
+    if (toc.css("max-height") == "0px") this.showMenu();
+    else this.hideMenu();
+  }
+  showMenu() {
+      toc.css("max-height", "100%");
+  }
+  hideMenu() {
+      toc.css("max-height", 0);
   }
   exit() {
+    toc.css("max-height", 0);
     $(".article-meta").removeClass("meta-stick");
     $("main").css("padding-top", 0);
+    toc.removeClass();
   }
 }
 class PCToggleMgr extends ToggleMgr {
   constructor() {
     super();
+    this.state = 'PC';
     toc.css("top", this.turningHeight);
     this.doScroll();
   }
@@ -71,16 +92,17 @@ class PCToggleMgr extends ToggleMgr {
     toc.addClass("toc-stick");
   }
   exit() {
+    toc.removeClass();
   }
 }
 function changeMgr() {
   const width = window.innerWidth;
   if (width <= turningWidth && prevWidth > turningWidth) {
-    if (mgr) mgr.exit();
+    mgr.exit();
     mgr = new MobileToggleMgr();
   }
   if (width > turningWidth && prevWidth <= turningWidth) {
-    if (mgr) mgr.exit();
+    mgr.exit();
     mgr = new PCToggleMgr();
   }
   prevWidth = width;
@@ -91,38 +113,21 @@ function initMgr() {
     mgr = new MobileToggleMgr();
   else mgr = new PCToggleMgr();
 }
-function showMenu(ele) {
-  if (toc[0].className != "toc-mobile") {
-    toc.css("top", $(".article-meta").outerHeight());
-    toc.removeClass();
-    toc.addClass("toc-mobile");
-  }
-  if (toc.css("max-height") == "0px")
-    toc.css("max-height", "100%");
-  else
-    toc.css("max-height", 0);
-}
 function scrollToHeader(ele) {
-  if (window.innerWidth <= 950) {
-    showMenu();
-  }
+  if (mgr.state == "mobile") mgr.hideMenu();
   let pos = $(ele).offset().top - 50;
   $("html, body").animate({ scrollTop: pos });
-  return false;
 }
 $(function() {
-  // toggleUp();
-  // // Wait DOM ready
-  // setTimeout(doScroll, 100);
-  toc = $("#TableOfContents");
-  initMgr();
-  doScroll();
   if (ISPAGE) {
+    toc = $("#TableOfContents");
+    initMgr();
+    doScroll();
     $(window).scroll(doScroll);
     $(window).resize(changeMgr);
+    $("#to-top").click(
+      (event) => $("html, body").animate({ scrollTop: 0 }, "slow")
+    );
+    $(".menu-btn").click(() => mgr.toggleMenu());
   }
-
-  $("#to-top").click(function(event) {
-    $("html, body").animate({ scrollTop: 0 }, "slow");
-  });
 });

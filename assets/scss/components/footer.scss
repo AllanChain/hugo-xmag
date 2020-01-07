@@ -122,14 +122,14 @@ footer,
     left: 0;
     width: 100%;
     border-radius: 0;
-    padding: 5px;
+    padding: 0;
     z-index: 99;
+    text-align: left;
     p, .categories, h3 {
       display: none;
     }
     h1 {
-      margin: 0;
-      display: inline-block;
+      margin: 5px;
       font-size: 1.2em;
     }
     .menu-btn {
@@ -141,7 +141,7 @@ footer,
   display: none;
   cursor: pointer;
   float: left;
-  padding-left: 10px;
+  padding: 5px 10px;
 }
 
 .bar1, .bar2, .bar3 {
