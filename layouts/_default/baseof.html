@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ $.Scratch.Set "Title" (default .Title (index .Site.Params.text (print "title_" (lower .Title)))) }}
+    <title>{{ if eq ($.Scratch.Get "Title") .Site.Title }}{{ .Site.Title }}{{ else }}{{ ($.Scratch.Get "Title") }} | {{ .Site.Title }}{{ end }}</title>
+
+    {{ partial "resources.html" . }}
+    {{ block "head" . }}{{ end }}
+  </head>
+
+  <body{{if .IsPage}} class="page"{{ end }}>
+    <nav class="header">
+      {{ partial "banner.html" . }}
+      {{ partial "head_meta.html" . }}
+    </nav>
+    {{ block "main" . }}{{ end }}
+    {{ template "_internal/google_analytics.html" . }}
+    {{ block "footer" . }}
+    <footer>
+      {{ partial "foot_custom.html" . }}
+    </footer>
+    {{ end }}
+  </body>
+</html>

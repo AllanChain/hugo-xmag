@@ -1,31 +1,35 @@
 .article-footer {
   text-align: left;
 }
-.menu,
-footer,
 .post-nav {
   text-align: center;
 }
-.footer {
+footer {
   background: $footerBG;
   box-shadow: 0 -3px 8px $footerShadow;
   padding: 1em 0;
-}
-.menu {
-  margin-bottom: 0.5em;
-  flex-wrap: wrap;
-}
-.menu li {
-  display: inline-block;
-  font-weight: bolder;
-}
-.menu a {
-  color: $pageFG;
-  padding: 0.5em;
-}
-.menu a:hover {
-  color: #2aa198;
-  background: #002b36;
+  text-align: center;
+  .menu {
+    margin-bottom: 0.5em;
+    flex-wrap: wrap;
+    margin: auto;
+    padding: 0 15px;
+    max-width: 800px;
+    display: flex;
+    justify-content: space-between;
+  }
+  li {
+    display: inline-block;
+    font-weight: bolder;
+  }
+  a {
+    color: $pageFG;
+    padding: 0.5em;
+  }
+  a:hover {
+    color: #2aa198;
+    background: #002b36;
+  }
 }
 .terms {
   font-size: 1.3em;

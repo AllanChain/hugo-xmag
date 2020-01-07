@@ -89,6 +89,26 @@
     text-align: center;
   }
 }
+.menu-foot {
+  ul {
+    padding-left: 0;
+    text-align: center;
+  }
+  li {
+    display: block;
+    font-weight: bolder;
+    a {
+      color: $menuLink;
+      padding: 0.5em;
+      text-decoration: underline;
+      @include transition(500ms ease);
+    }
+    a:hover {
+      color: $menuHover;
+      font-size: 1.2em;
+    }
+  }
+}
 .copyright {
   text-align: center;
 }

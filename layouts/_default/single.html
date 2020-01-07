@@ -1,4 +1,4 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
 
 <!-- use id here to help handling all the class in js -->
 <div id="menu-toc">
@@ -8,11 +8,11 @@
   <h3>Table of Contents</h3>
 {{ partial "toc.html" . }}
 </div>
+{{ end }}
 <hr>
-{{ end }}
-{{ with .Site.Params.footer }}
-<div class="copyright">{{ . | markdownify }}</div>
-{{ end }}
+<div class="menu-foot">
+{{ partial "foot_custom.html" . }}
+</div>
 </div>
 
 <div class="container">
@@ -54,5 +54,8 @@
 {{ partial "comments.html" . }}
 </article>
 </div>
-
-{{ partial "footer.html" . }}
+<div class="to-top" id="to-top">🚀</div>
+{{ end }}
+{{ define "footer" }}
+<!-- Hugo don't let me define empty block -->
+{{ end }}
