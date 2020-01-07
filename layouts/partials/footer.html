@@ -9,9 +9,6 @@
     <li><a href="{{ .URL | relURL }}"><span data-hover="{{ .Name }}">{{ .Name }}</span></a></li>
     {{ end }}
   </ul>
-  {{ with .Site.Params.footer }}
-  <div class="copyright">{{ . | markdownify }}</div>
-  {{ end }}
 </div>
 </footer>
 

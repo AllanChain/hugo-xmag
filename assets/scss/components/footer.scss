@@ -11,14 +11,6 @@ footer,
   box-shadow: 0 -3px 8px $footerShadow;
   padding: 1em 0;
 }
-.footer,
-.footer a {
-  color: #fff;
-}
-.copyright,
-.copyright a {
-  color: #ccc;
-}
 .menu {
   margin-bottom: 0.5em;
   flex-wrap: wrap;
@@ -28,6 +20,7 @@ footer,
   font-weight: bolder;
 }
 .menu a {
+  color: $pageFG;
   padding: 0.5em;
 }
 .menu a:hover {
@@ -65,86 +58,4 @@ footer,
   margin-bottom: 10px;
   color: $Cyan;
   @include transition(500ms ease);
-}
-#menu-toc {
-  background-color: $pageBG;
-  padding-right: 2px;
-  font-size: 0.8em;
-  white-space: normal;
-  display: none;
-  overflow-y: scroll;
-  max-height: 0;
-  ul {
-    padding-left: 15px;
-  }
-}
-@media(min-width: 1200px) {
-  #menu-toc {
-    display: block;
-    width: calc(50vw - 405px);
-  }
-}
-#menu-toc.toc-mobile {
-  display: block;
-  width: 80%;
-  font-size: 1em;
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  padding-left: 5px;
-  box-shadow: 10px 0 60px $cardShadow;
-  z-index: 98;
-  @include transition(500ms ease);
-}
-#menu-toc.toc-abs {
-  position: absolute;
-  top: 200px;
-  left: 0;
-  max-height: 100% !important;
-}
-#menu-toc.toc-stick {
-  position: fixed;
-  top: 0 !important;
-  left: 0;
-  bottom: 0;
-  max-height: 100% !important;
-}
-#menu-toc::-webkit-scrollbar {
-  width: 0;
-}
-@media (max-width: 950px) {
-  .article-meta.meta-stick {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-radius: 0;
-    padding: 0;
-    z-index: 99;
-    text-align: left;
-    p, .categories, h3 {
-      display: none;
-    }
-    h1 {
-      margin: 5px;
-      font-size: 1.2em;
-    }
-    .menu-btn {
-      display: block;
-    }
-  }
-}
-.menu-btn {
-  display: none;
-  cursor: pointer;
-  float: left;
-  padding: 5px 10px;
-}
-
-.bar1, .bar2, .bar3 {
-  width: 25px;
-  height: 3px;
-  background-color: $pageFG;
-  margin: 5px 0;
 }

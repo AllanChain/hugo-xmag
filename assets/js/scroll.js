@@ -35,6 +35,9 @@ class ToggleMgr {
   toggleDown() {
     $('#to-top').css({bottom: "3%", opacity: 1});
   }
+  mobileHideMenu() {
+    // just let PCToggleMgr not BB
+  }
 }
 class MobileToggleMgr extends ToggleMgr {
   constructor() {
@@ -43,6 +46,7 @@ class MobileToggleMgr extends ToggleMgr {
     this.originalHeight = $(".article-meta").outerHeight();
     toc.css("top", $(".article-meta").outerHeight());
     toc.addClass("toc-mobile");
+    // do corresponding toggle to initiate
     this.doScroll();
   }
   toggleUp() {
@@ -55,16 +59,22 @@ class MobileToggleMgr extends ToggleMgr {
     super.toggleDown();
     $("main").css("padding-top", this.originalHeight + "px");
     $(".article-meta").addClass("meta-stick");
+    // for the css, see comment below
     toc.css("top", $(".article-meta").outerHeight());
   }
   toggleMenu() {
-    if (toc.css("max-height") == "0px") this.showMenu();
-    else this.hideMenu();
+    if (toc.css("max-height") == "0px") this.mobileShowMenu();
+    else this.mobileHideMenu();
   }
-  showMenu() {
+  mobileShowMenu() {
+    // the height will change if you resize..
+    // so it's safer to check again
+    // if you only set `top` here, the first time
+    // to open menu will have the animation for the `top` too
+    toc.css("top", $(".article-meta").outerHeight());
     toc.css("max-height", "100%");
   }
-  hideMenu() {
+  mobileHideMenu() {
     toc.css("max-height", 0);
   }
   exit() {
@@ -123,4 +133,5 @@ $(function() {
     (event) => $("html, body").animate({ scrollTop: 0 }, "slow")
   );
   $(".menu-btn").click(() => mgr.toggleMenu());
+  $("main").click(() => mgr.mobileHideMenu());
 });
