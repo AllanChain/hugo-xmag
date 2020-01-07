@@ -1,5 +1,5 @@
 function hashChange(event) {
-  let hash = location.hash;
+  let hash = decodeURI(location.hash);
   // Do nothing if is the symbol of done
   if (hash == "#") return;
   let header = $(hash + "-nofocus");
