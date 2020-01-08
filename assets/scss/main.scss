@@ -16,23 +16,28 @@
 @import 'style';
 
 html {
-  font-size: 16px;
+  font-size: 18px;
 }
 body {
   margin: 0;
   line-height: 1.5em;
+  font-size: 1rem;
   background: $pageBG;
   color: $pageFG;
-}
-main {
-  margin-bottom: 15px;
-  a {
-      word-break: break-all;
-  }
 }
 article {
   padding: 1em;
   background: $articleBG;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  main {
+    margin-bottom: 15px;
+    a {
+      word-break: break-all;
+    }
+  }
 }
 a {
   text-decoration: none;
@@ -47,10 +52,11 @@ pre {
   border: 1px solid $preBorder;
   box-shadow: 3px 3px 5px $preShadow;
   overflow-x: auto;
-}
-pre code {
-  padding: 0.5em;
-  display: block;
+  code {
+    padding: 0.5em;
+    display: block;
+    font-size: 0.9rem;
+  }
 }
 p code {
   background-color: $codeBG;

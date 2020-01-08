@@ -8,9 +8,6 @@
 .page .container {
   max-width: 800px;
 }
-.container {
-  hyphens: auto;
-}
 @media (max-width: 950px) {
   .page .container {
     padding: 0;
@@ -20,6 +17,7 @@
 .header {
   border-top: 5px solid $headerBorder;
   border-bottom: 4px double $headerBorder;
+  background: $headerBG;
   text-align: center;
   padding: 15px 0 5px;
 }
@@ -32,42 +30,16 @@
   left: 50%;
   transform: translate(-50%, 0%);
 }
-.header{
-  background: $headerBG;
-}
 .banner {
   font-size: 3.5rem;
-}
-.banner .text {
-  display: block;
-  line-height: 1rem;
-}
-.banner a {
-  color: $pageFG;
-}
-.categories a {
-  font-size: 0.9rem;
-  font-weight: bolder;
-  text-transform: uppercase;
+  .text {
+    display: block;
+    line-height: 1em;
+    color: $pageFG;
+  }
 }
 .leading-h1 {
   font-size: 2rem;
   text-align: center;
   margin-bottom: 5px;
-}
-.article-meta {
-  text-decoration: none;
-  background: #135d61;
-  padding: 5px;
-  border-radius: 30px;
-}
-.article-meta {
-  text-align: center;
-}
-.title {
-  font-size: 1.2rem;
-}
-.article-list h1,
-.title {
-  line-height: 1.2rem;
 }
