@@ -1,7 +1,7 @@
 #menu-toc {
   background-color: $pageBG;
   padding-right: 2px;
-  font-size: 0.8em;
+  font-size: 0.9em;
   white-space: normal;
   display: none;
   overflow-y: scroll;
@@ -89,6 +89,9 @@
 }
 .toc-title {
   text-align: center;
+}
+.toc-focus {
+  font-weight: bolder;
 }
 .menu-foot {
   ul {
