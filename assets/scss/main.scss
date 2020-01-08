@@ -16,7 +16,7 @@
 @import 'style';
 
 html {
-  font-size: 18px;
+  font-size: 17px;
 }
 body {
   margin: 0;
@@ -24,6 +24,9 @@ body {
   font-size: 1rem;
   background: $pageBG;
   color: $pageFG;
+}
+p {
+  font-size: 1rem;
 }
 article {
   padding: 1em;
