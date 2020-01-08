@@ -25,11 +25,7 @@ body {
   background: $pageBG;
   color: $pageFG;
 }
-p {
-  font-size: 17px;
-}
 article {
-  position: relative;
   padding: 1em;
   background: $articleBG;
   -webkit-hyphens: auto;
