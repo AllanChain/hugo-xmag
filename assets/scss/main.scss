@@ -26,9 +26,10 @@ body {
   color: $pageFG;
 }
 p {
-  font-size: 1rem;
+  font-size: 17px;
 }
 article {
+  position: relative;
   padding: 1em;
   background: $articleBG;
   -webkit-hyphens: auto;
