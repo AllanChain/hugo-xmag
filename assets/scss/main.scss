@@ -15,12 +15,14 @@
 @import 'components/all.scss';
 @import 'style';
 
+html {
+  font-size: 16px;
+}
 body {
   margin: 0;
   line-height: 1.5em;
   background: $pageBG;
   color: $pageFG;
-  font-size: 16px;
 }
 main {
   margin-bottom: 15px;

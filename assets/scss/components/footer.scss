@@ -7,10 +7,10 @@
 footer {
   background: $footerBG;
   box-shadow: 0 -3px 8px $footerShadow;
-  padding: 1em 0;
+  padding: 1rem 0;
   text-align: center;
   .menu {
-    margin-bottom: 0.5em;
+    margin-bottom: 0.5rem;
     flex-wrap: wrap;
     margin: auto;
     padding: 0 15px;
@@ -24,7 +24,7 @@ footer {
   }
   a {
     color: $pageFG;
-    padding: 0.5em;
+    padding: 0.5rem;
   }
   a:hover {
     color: #2aa198;
@@ -32,22 +32,22 @@ footer {
   }
 }
 .terms {
-  font-size: 1.3em;
+  font-size: 1.3rem;
 }
 .post-nav {
-  margin: 0.5em 0;
+  margin: 0.5rem 0;
   display: flex;
   justify-content: space-between;
 }
 .footnotes {
-  font-size: 0.9em;
+  font-size: 0.9rem;
 }
 .footnotes hr {
   width: 50%;
   margin-left: 0;
 }
 .to-top {
-  font-size: 2em;
+  font-size: 2rem;
   position: fixed;
   right: 5%;
   bottom: -3%;
