@@ -15,14 +15,11 @@
 
 <!-- start js -->
 <script charset="utf-8">
-{{ if .IsPage -}}
-const ISPAGE = true;
-{{- else -}}
-const ISPAGE = false;
-{{- end }}
+const ISPAGE = {{- .IsPage -}};
+const HAS_TOC = {{- default true .Params.toc -}};
 </script>
 
-{{ if and (not .Params.disable_mathjax) (or (in (string .Content) "\\") (in (string .Content) "$")) }}
+{{ if and .IsPage (and (not .Params.disable_mathjax) (or (in (string .Content) "\\") (in (string .Content) "$"))) }}
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script charset="utf-8">
@@ -34,7 +31,7 @@ const ISPAGE = false;
 </script>
 {{ end }}
 
-{{ if .Site.Params.Gitalk.enabled }}
+{{ if and .IsPage .Site.Params.Gitalk.enabled }}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
@@ -53,9 +50,7 @@ const ISPAGE = false;
   });
 
   window.onload = function() {
-    if (ISPAGE) {
-      gitalk.render('gitalk-container');
-    }
+    gitalk.render('gitalk-container');
   }
 </script>
 {{ end }}
@@ -67,7 +62,7 @@ const ISPAGE = false;
 {{ $ResJS := slice }}
 {{ if .IsPage }}
 {{- $ResJS = $ResJS | append (resources.Get "js/scroll.js") -}}
-{{- $ResJS = $ResJS | append (resources.Get "js/hash.js") -}}
+{{- $ResJS = $ResJS | append (resources.Get "js/toc.js") -}}
 {{ end }}
 {{ with $ResJS }}
 {{ $js := resources.Concat "js/bundle.js" . }}
