@@ -10,10 +10,10 @@
     padding-left: 15px;
   }
 }
-@media(min-width: 1200px) {
+@media(min-width: 950px) {
   #menu-toc {
     display: block;
-    width: calc(50vw - 405px);
+    width: 280px;
   }
 }
 #menu-toc.toc-mobile {
