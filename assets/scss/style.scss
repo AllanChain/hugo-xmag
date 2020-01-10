@@ -5,13 +5,13 @@
   padding: 0 15px;
 }
 // page is the class of blog post body
-.page .header div,
-.page .container {
+.page .header div {
   max-width: 800px;
 }
 @media (max-width: 950px) {
   .page .container {
     padding: 0;
+    max-width: 800px;
   }
 }
 @media (min-width: 950px) {
@@ -20,7 +20,7 @@
   }
   .page .header div,
   .page .container {
-    max-width: calc(100% - 300px);
+    width: calc(100% - 300px);
   }
 }
 /* header and footer areas */
