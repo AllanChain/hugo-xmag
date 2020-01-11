@@ -63,6 +63,7 @@ const HAS_TOC = {{- default true .Params.toc -}};
 {{ if .IsPage }}
 {{- $ResJS = $ResJS | append (resources.Get "js/scroll.js") -}}
 {{- $ResJS = $ResJS | append (resources.Get "js/toc.js") -}}
+{{- $ResJS = $ResJS | append (resources.Get "js/preCode.js") -}}
 {{ end }}
 {{ with $ResJS }}
 {{ $js := resources.Concat "js/bundle.js" . }}

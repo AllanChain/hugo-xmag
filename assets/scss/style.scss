@@ -20,28 +20,3 @@
     width: calc(100% - 300px);
   }
 }
-.header {
-  border-top: 5px solid $headerBorder;
-  border-bottom: 4px double $headerBorder;
-  background: $headerBG;
-  text-align: center;
-  padding: 15px 0 5px;
-  .banner {
-    font-size: 3.5rem;
-    .text {
-      display: block;
-      line-height: 1em;
-      color: $pageFG;
-    }
-  }
-  .head-meta {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.8rem;
-    span.date {
-      position: absolute;
-      left: 50%;
-      transform: translate(-50%, 0%);
-    }
-  }
-}
