@@ -17,39 +17,31 @@
 @media (min-width: 950px) {
   .page .container {
     float: right;
-  }
-  .page .header div,
-  .page .container {
     width: calc(100% - 300px);
   }
 }
-/* header and footer areas */
 .header {
   border-top: 5px solid $headerBorder;
   border-bottom: 4px double $headerBorder;
   background: $headerBG;
   text-align: center;
   padding: 15px 0 5px;
-}
-.head-meta {
-  display: flex;
-  justify-content: space-between;
-}
-.head-meta span.date {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0%);
-}
-.banner {
-  font-size: 3.5rem;
-  .text {
-    display: block;
-    line-height: 1em;
-    color: $pageFG;
+  .banner {
+    font-size: 3.5rem;
+    .text {
+      display: block;
+      line-height: 1em;
+      color: $pageFG;
+    }
   }
-}
-.leading-h1 {
-  font-size: 2rem;
-  text-align: center;
-  margin-bottom: 5px;
+  .head-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    span.date {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, 0%);
+    }
+  }
 }

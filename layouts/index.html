@@ -21,7 +21,7 @@
             {{ with .thumbnail }}
               <img class="thumbnail" src="{{ . }}" alt="thumbnail">
             {{ end }}
-            {{ .summary }}
+            {{ .summary | markdownify }}
           </div>
           {{ end }}
         </section>

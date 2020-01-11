@@ -43,6 +43,20 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+  .date-author {
+    color: $dateAuthor;
+  }
+  .summary {
+    word-wrap: break-word;
+  }
+  .thumbnail {
+    max-height: 5.1em;
+    max-width: 6.8em;
+    float: left;
+    overflow: hidden;
+    margin: 5px 8px 5px 0;
+    text-align: center;
+  }
 }
 .article-list:hover {
   box-shadow: 0 0 30px $cardShadowHover;
@@ -52,17 +66,8 @@
     white-space: inherit;
   }
 }
-.date-author {
-  color: #657b83;
-}
-.summary {
-  word-wrap: break-word;
-}
-.thumbnail {
-  max-height: 5.1em;
-  max-width: 6.8em;
-  float: left;
-  overflow: hidden;
-  margin: 5px 8px 5px 0;
+.leading-h1 {
+  font-size: 2rem;
   text-align: center;
+  margin-bottom: 5px;
 }
