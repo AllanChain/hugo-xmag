@@ -22,7 +22,7 @@ $gitalkFG: $pageFG;
 $gitalkBorder: $Base00;
 
 $preBG: $Base03;
-$preShadow: $Blue;
+$preShadow: mix($Blue, $Base03);
 $preBorder: $Blue;
 $preHeaderBG: mix($Blue, $Base03);
 $preHeaderFG: $Base2;

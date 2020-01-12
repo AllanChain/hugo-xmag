@@ -26,12 +26,12 @@ pre {
   }
   table {
     margin-bottom: 1rem !important;
-    tbody tr td {
-      :first-child pre {
-        border-right: none;
+    tbody tr {
+      td:first-child pre code{
+        padding-right: 0;
       }
-      :last-child pre {
-        border-left: none;
+      td:last-child pre code{
+        padding-left: 0;
       }
       pre {
         margin: 0 auto;
