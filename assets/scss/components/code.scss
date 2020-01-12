@@ -1,0 +1,46 @@
+// `>` means only look for direct parent
+:not(td) > pre {
+  border: 1px solid $preBorder;
+  box-shadow: 3px 3px 5px $preShadow;
+}
+pre {
+  overflow-x: auto;
+  margin-top: 0;
+  code {
+    padding: 0.5em;
+    display: block;
+    font-size: 0.9rem;
+  }
+}
+.highlight {
+  box-shadow: 3px 3px 5px $preShadow;
+  // for fluent box shadow
+  border-radius: 10px 10px 0 0;
+  .code-lang {
+    border-radius: 10px 10px 0 0;
+    background-color: $preHeaderBG;
+    color: $preHeaderFG;
+    span {
+      margin-left: 10px;
+    }
+  }
+  table {
+    margin-bottom: 1rem !important;
+    tbody tr td {
+      :first-child pre {
+        border-right: none;
+      }
+      :last-child pre {
+        border-left: none;
+      }
+      pre {
+        margin: 0 auto;
+      }
+    }
+  }
+}
+p code {
+  background-color: $codeBG;
+  border-radius: 10px;
+  padding: 1px 5px;
+}

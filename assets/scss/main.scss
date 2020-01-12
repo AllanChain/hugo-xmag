@@ -47,55 +47,6 @@ hr {
   border-style: dashed;
   color: $hr;
 }
-/* code */
-pre {
-  border: 1px solid $preBorder;
-  box-shadow: 3px 3px 5px $preShadow;
-  overflow-x: auto;
-  margin-top: 0;
-  code {
-    padding: 0.5em;
-    display: block;
-    font-size: 0.9rem;
-  }
-}
-.highlight {
-  pre {
-    border-top: none;
-  }
-  .code-lang {
-    background-color: $preHeaderBG;
-    color: $preHeaderFG;
-    box-shadow: 3px 3px 5px $preShadow;
-    border-radius: 10px 10px 0 0;
-    span {
-      margin-left: 10px;
-    }
-  }
-  table {
-    overflow: hidden !important;
-    tbody {
-      tr {
-        width: 100%;
-        td {
-          overflow-x: scroll;
-        }
-        td:first-child pre {
-          border-right: none;
-        }
-        td:last-child pre {
-          border-left: none;
-        }
-      }
-    }
-  }
-}
-p code {
-  background-color: $codeBG;
-  border-radius: 10px;
-  padding: 1px 5px;
-}
-
 /* misc elements */
 img,
 iframe,
