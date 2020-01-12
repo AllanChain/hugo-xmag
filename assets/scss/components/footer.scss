@@ -27,8 +27,8 @@ footer {
     padding: 0.5rem;
   }
   a:hover {
-    color: #2aa198;
-    background: #002b36;
+    color: $menuAnchorHoverFG;
+    background: $menuAnchorHoverBG;
   }
 }
 .terms {

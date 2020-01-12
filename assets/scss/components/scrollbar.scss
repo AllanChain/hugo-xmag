@@ -6,10 +6,10 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #586e75;
+  background: $scrollTrack;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #859900;
+  background: $scrollThumb;
 }

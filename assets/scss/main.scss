@@ -11,8 +11,8 @@
 
 @import 'fonts';
 
-@import 'colorschemes/SolarizedDark.scss';
-@import 'components/all.scss';
+@import 'colorschemes/{{ .Site.Params.color_scheme }}';
+@import 'components/all';
 @import 'style';
 
 html {

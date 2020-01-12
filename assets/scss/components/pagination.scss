@@ -13,13 +13,13 @@
   line-height: 35px;
 }
 .page-ellipsis {
-  color: #268bd2;
+  color: $linkFG;
 }
 .page-item a {
   text-decoration: none;
 }
 .page-item {
-  background-color: #073642;
+  background-color: $pageBG;
   padding: 3px;
   margin: 2px;
   border-radius: 5px;
@@ -28,5 +28,5 @@
   opacity: 0.5;
 }
 .page-item.active {
-  border: 1px dashed #2aa198;
+  border: 1px dashed $paginationBorder;
 }
