@@ -26,9 +26,11 @@
     {{ with .Params.thumbnail }}
     <img class="thumbnail" src="{{ relURL . }}" alt="Thumbnail" />
     {{ else }}
-    {{ $img := findRE "<img src=\"[^\"]+\"" .Content 1 }}
-    {{ range $img }}
-    {{ (print . " class=\"thumbnail\" alt=\"Thumbnail\" />") | safeHTML }}
+    {{ $img := index (findRE "img src=\".*?\"" .Content 1) 0 }}
+    {{ if $img }}
+    {{ $img = replace (replace $img "img src=\"" "") "\"" ""}}
+    {{ $img = (urls.Parse .Page.Permalink).ResolveReference (urls.Parse $img) }}
+    <img src="{{ $img }}" class="thumbnail" alt="Thumbnail" />
     {{ else }}
     {{ with $.Scratch.Get "categoryName" | .Site.Params.termThumbnails.Get }}
     <img class="thumbnail" src="{{ relURL . }}" alt="Thumbnail" />
