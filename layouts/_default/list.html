@@ -32,7 +32,7 @@
     {{ $img = (urls.Parse .Page.Permalink).ResolveReference (urls.Parse $img) }}
     <img src="{{ $img }}" class="thumbnail" alt="Thumbnail" />
     {{ else }}
-    {{ with $.Scratch.Get "categoryName" | .Site.Params.termThumbnails.Get }}
+    {{ with replace ($.Scratch.Get "categoryName") " " "-" | .Site.Params.termThumbnails.Get }}
     <img class="thumbnail" src="{{ relURL . }}" alt="Thumbnail" />
     {{ end }}
     {{ end }}
