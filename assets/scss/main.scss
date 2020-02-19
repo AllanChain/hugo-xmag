@@ -60,10 +60,11 @@ blockquote {
   margin-right: 0px;
   margin-left: 20px;
 }
-table {
+table:not(.highlight) {
   margin: 1em auto auto;
-  border-top: 1px solid $tableLine;
-  border-bottom: 1px solid $tableLine;
+  width: auto;
+  overflow: auto;
+  display: block;
   thead th {
     border-bottom: 1px solid $tableHL;
   }
