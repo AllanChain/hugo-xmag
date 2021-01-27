@@ -1,5 +1,7 @@
 # HUGO XMAG Solarized
 
+**:warning: DEPRECATED!** No mainatainance! The author is not using hugo any more!
+
 The original Hugo XMag theme description is below the separating line.
 
 This fork will never be merge to the original one because I did so much modifications and most importantly, changed the colorscheme.
